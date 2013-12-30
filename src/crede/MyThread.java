@@ -10,7 +10,6 @@ public class MyThread extends Thread
       this.maxIdx = m;
    }
 
-   @Override
    public void run()
    {
       for(int i = this.startIdx; i < this.maxIdx; i += this.nThreads)
