@@ -1,0 +1,9 @@
+<#if licenseFirst??>
+${licenseFirst}
+</#if>
+${licensePrefix} This software is designed for Unit Electric
+${licensePrefix} Contact seckin.celik@unitelektrik.com.tr
+${licensePrefix}
+<#if licenseLast??>
+${licenseLast}
+</#if>

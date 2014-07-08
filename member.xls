@@ -1,0 +1,4 @@
+ID	Seller	Buyer	Type	Start_Date	Start_Hr	End_Date	End_Hr	Capacity	Direction	Price	Profit	Expense	
+138	Protergia S.A.	Unit Elektrik 	Bilateral	2014-02-20	0	2014-02-28	0	12.0	TR>TR	161.75	0.0	372681.11	
+139	Greek Environmental 	Unit Elektrik 	Access	2014-03-01	0	2014-03-20	0	10.0	TR>GR	3.1	0.0	14136.0	
+140	Unit Elektrik 	Gen-I Sofia	Spot	2014-02-20	0	2014-02-28	0	10.0	TR>GR	58.0	0.0	0.0	
