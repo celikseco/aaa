@@ -6,7 +6,8 @@
 
 package TradeX;
 
-import static TradeX.ilkEkran.tabular;
+import static TradeX.ilkekran.tabular;
+import java.awt.HeadlessException;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -18,6 +19,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -31,7 +33,7 @@ public class dealsearch extends javax.swing.JInternalFrame {
 		Statement stmt = null;
 		ResultSet rs = null;
                 PreparedStatement ps=null;
-                private String connectionUrl="jdbc:mysql://localhost:3306/unit";
+                private String connectionUrl="jdbc:mysql://192.168.0.162:3306/unit";
                 private String connectionUser="general_user";
                 private String connectionPassword= "Trade2013.";
     public dealsearch() {
@@ -49,8 +51,12 @@ public class dealsearch extends javax.swing.JInternalFrame {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
         jPopupMenu1 = new javax.swing.JPopupMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
+        contract = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
+        jMenuItem3 = new javax.swing.JMenuItem();
+        jMenuItem4 = new javax.swing.JMenuItem();
+        jMenuItem5 = new javax.swing.JMenuItem();
+        jMenuItem6 = new javax.swing.JMenuItem();
         jRadioButton1 = new javax.swing.JRadioButton();
         jRadioButton2 = new javax.swing.JRadioButton();
         jRadioButton3 = new javax.swing.JRadioButton();
@@ -59,24 +65,63 @@ public class dealsearch extends javax.swing.JInternalFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tablo = new javax.swing.JTable();
         jRadioButton4 = new javax.swing.JRadioButton();
+        jLabel2 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
-        jMenuItem1.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jMenuItem1.setText("View Contract");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+        contract.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        contract.setText("View Contract");
+        contract.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
+                contractview(evt);
             }
         });
-        jPopupMenu1.add(jMenuItem1);
+        jPopupMenu1.add(contract);
 
         jMenuItem2.setText("View B/G");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bgview(evt);
+            }
+        });
         jPopupMenu1.add(jMenuItem2);
+
+        jMenuItem3.setText("view CBTC Contract");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
+        jPopupMenu1.add(jMenuItem3);
+
+        jMenuItem4.setText("view Energy Invoice");
+        jMenuItem4.setToolTipText("");
+        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem4ActionPerformed(evt);
+            }
+        });
+        jPopupMenu1.add(jMenuItem4);
+
+        jMenuItem5.setText("view LFC");
+        jMenuItem5.setToolTipText("");
+        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                viewlfc(evt);
+            }
+        });
+        jPopupMenu1.add(jMenuItem5);
+
+        jMenuItem6.setText("view CBTC Invoice");
+        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem6ActionPerformed(evt);
+            }
+        });
+        jPopupMenu1.add(jMenuItem6);
 
         setBackground(new java.awt.Color(255, 255, 255));
         setClosable(true);
         setIconifiable(true);
-        setMaximizable(true);
-        setResizable(true);
         addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
             public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {
             }
@@ -177,10 +222,17 @@ public class dealsearch extends javax.swing.JInternalFrame {
         jScrollPane1.setViewportView(tablo);
 
         buttonGroup1.add(jRadioButton4);
-        jRadioButton4.setText("Current Month");
+        jRadioButton4.setText("This Month");
         jRadioButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jRadioButton4ActionPerformed(evt);
+            }
+        });
+
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/utilities/refresh2020.png"))); // NOI18N
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
             }
         });
 
@@ -191,7 +243,7 @@ public class dealsearch extends javax.swing.JInternalFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 944, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jRadioButton1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -200,8 +252,12 @@ public class dealsearch extends javax.swing.JInternalFrame {
                         .addComponent(jRadioButton4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jRadioButton3)
-                        .addGap(18, 18, 18)
-                        .addComponent(jTextField1)
+                        .addGap(48, 48, 48)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 516, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
@@ -215,9 +271,15 @@ public class dealsearch extends javax.swing.JInternalFrame {
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jRadioButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jRadioButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jRadioButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jTextField1)
-                        .addComponent(jRadioButton4)))
+                        .addComponent(jRadioButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jRadioButton4)
+                                .addComponent(jLabel2))
+                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(15, 15, 15)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -228,7 +290,7 @@ public class dealsearch extends javax.swing.JInternalFrame {
 
     private void formInternalFrameOpened(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameOpened
         // TODO add your handling code here:
-                       tablo.addMouseListener(new java.awt.event.MouseAdapter() {
+                tablo.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseReleased(java.awt.event.MouseEvent evt) {
                 tabloMouseReleased(evt);
             }
@@ -238,6 +300,7 @@ public class dealsearch extends javax.swing.JInternalFrame {
                 tabloKeyReleased(evt);
             }
         });
+        jRadioButton1.setSelected(true);
         int i=0;
         dbo.dealSave deal=new dbo.dealSave();
         ResultSet rss=deal.monthview();
@@ -320,7 +383,16 @@ public class dealsearch extends javax.swing.JInternalFrame {
 
     private void jRadioButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton3ActionPerformed
         // TODO add your handling code here:
-
+        tablo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                tabloMouseReleased(evt);
+            }
+        });
+        tablo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                tabloKeyReleased(evt);
+            }
+        });
         String columnName[]={"ID","Seller","Buyer","Start","End","Payment","BG Issue","BG Validity","Contract","BG"};
         Object oss[][]=new Object[100][10];
         int i=0;
@@ -358,7 +430,16 @@ public class dealsearch extends javax.swing.JInternalFrame {
 
     private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
         // TODO add your handling code here:
-        
+                tablo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                tabloMouseReleased(evt);
+            }
+        });
+        tablo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                tabloKeyReleased(evt);
+            }
+        });
                  String columnName[]={"ID","Seller","Buyer","Start","End","Payment","BG Issue","BG Validity","Contract","BG"};
         Object oss[][]=new Object[100][10];
         int i=0;
@@ -387,7 +468,16 @@ public class dealsearch extends javax.swing.JInternalFrame {
 
     private void jRadioButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton4ActionPerformed
         // TODO add your handling code here:
-        
+                tablo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                tabloMouseReleased(evt);
+            }
+        });
+        tablo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                tabloKeyReleased(evt);
+            }
+        });
         
                                  String columnName[]={"ID","Seller","Buyer","Start","End","Payment","BG Issue","BG Validity","Contract","BG"};
         Object oss[][]=new Object[100][10];
@@ -417,7 +507,16 @@ public class dealsearch extends javax.swing.JInternalFrame {
 
     private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
         // TODO add your handling code here:
-        
+                tablo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                tabloMouseReleased(evt);
+            }
+        });
+        tablo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                tabloKeyReleased(evt);
+            }
+        });
                                                String columnName[]={"ID","Seller","Buyer","Start","End","Payment","BG Issue","BG Validity","Contract","BG"};
         Object oss[][]=new Object[100][10];
         int i=0;
@@ -444,24 +543,23 @@ public class dealsearch extends javax.swing.JInternalFrame {
         
     }//GEN-LAST:event_jRadioButton1ActionPerformed
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+    private void contractview(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_contractview
         // TODO add your handling code here:
         
-
-        Integer  i =Integer.parseInt((String) tablo.getValueAt(tablo.getSelectedRow(), 0));
+        try{
+        int  i =Integer.parseInt(tablo.getValueAt(tablo.getSelectedRow(), 0).toString());
         dbo.dealSave kontrat= new dbo.dealSave();
-            ResultSet klm=kontrat.contractview(i.intValue());
+            ResultSet klm=kontrat.contractview(i);
             try{
                 while(klm.next()){
-                    java.sql.Blob myBlob = klm.getBlob("datay"); 
+                    java.sql.Blob myBlob = klm.getBlob("ContractDate"); 
                     try (java.io.InputStream myInputStream = myBlob.getBinaryStream()) {
                         String yol="C:\\"+klm.getString("ContractName");
                         FileOutputStream fos = new FileOutputStream(yol);
-                        byte[] buffer = new byte[klm.getInt("Length")];
+                        byte[] buffer = new byte[klm.getInt("ContractSize")];
                         int bytesRead = 0;
                         while ((bytesRead = myInputStream.read(buffer)) != -1) {
                             fos.write(buffer, 0, bytesRead);
-                            System.out.println("Inside While:");
                             fos.close();
                         } 
                         if ((new File(yol)).exists()) {
@@ -477,9 +575,13 @@ public class dealsearch extends javax.swing.JInternalFrame {
                 }    
                
             
-            }catch(IOException | SQLException e){}
-        
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
+            }catch(IOException | SQLException e){
+                JOptionPane.showConfirmDialog(null, " "+e.getMessage());
+            }
+        }catch(HeadlessException | NumberFormatException e){
+        JOptionPane.showConfirmDialog(null, " "+e.getMessage());
+        }
+    }//GEN-LAST:event_contractview
 
     private void tabloKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tabloKeyReleased
         // TODO add your handling code here:
@@ -492,12 +594,237 @@ public class dealsearch extends javax.swing.JInternalFrame {
             jPopupMenu1.show(tablo, evt.getX(),evt.getY());}
     }//GEN-LAST:event_tabloMouseReleased
 
+    private void bgview(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bgview
+        // TODO add your handling code here:
+        try{ 
+        int  i =Integer.parseInt((tablo.getValueAt(tablo.getSelectedRow(), 0).toString()));
+        dbo.dealSave kontrat= new dbo.dealSave();
+            ResultSet klm=kontrat.contractview(i);
+            try{
+                while(klm.next()){
+                    java.sql.Blob myBlob = klm.getBlob("datay"); 
+                    try (java.io.InputStream myInputStream = myBlob.getBinaryStream()) {
+                        String yol="C:\\"+klm.getString("FileName");
+                        FileOutputStream fos = new FileOutputStream(yol);
+                        byte[] buffer = new byte[klm.getInt("Length")];
+                        int bytesRead = 0;
+                        while ((bytesRead = myInputStream.read(buffer)) != -1) {
+                            fos.write(buffer, 0, bytesRead);
+                            fos.close();
+                        } 
+                        if ((new File(yol)).exists()) {
+ 
+			Process p = Runtime
+			   .getRuntime()
+			   .exec("rundll32 url.dll,FileProtocolHandler "+yol);
+			p.waitFor();
+                    } 
+                }   catch (InterruptedException ex) { 
+                        Logger.getLogger(dealsearch.class.getName()).log(Level.SEVERE, null, ex);
+                    } 
+                }    
+               
+            
+            }catch(IOException | SQLException e){
+            JOptionPane.showConfirmDialog(null, " "+e.getMessage());
+            }}
+            catch(HeadlessException | NumberFormatException e){
+            JOptionPane.showConfirmDialog(null, " "+e.getMessage());
+            }
+        
+    }//GEN-LAST:event_bgview
+
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+        // TODO add your handling code here:
+        try{ 
+        int  i =Integer.parseInt(tablo.getValueAt(tablo.getSelectedRow(), 0).toString());
+        dbo.dealSave kontrat= new dbo.dealSave();
+            ResultSet klm=kontrat.contractview(i);
+            try{
+                while(klm.next()){
+                    java.sql.Blob myBlob = klm.getBlob("CBTCDate"); 
+                    try (java.io.InputStream myInputStream = myBlob.getBinaryStream()) {
+                        String yol="C:\\"+klm.getString("CBTCName");
+                        FileOutputStream fos = new FileOutputStream(yol);
+                        byte[] buffer = new byte[klm.getInt("CBTCSize")];
+                        int bytesRead = 0;
+                        while ((bytesRead = myInputStream.read(buffer)) != -1) {
+                            fos.write(buffer, 0, bytesRead);
+                            fos.close();
+                        } 
+                        if ((new File(yol)).exists()) {
+ 
+			Process p = Runtime
+			   .getRuntime()
+			   .exec("rundll32 url.dll,FileProtocolHandler "+yol);
+			p.waitFor();
+                    } 
+                }   catch (InterruptedException ex) { 
+                        Logger.getLogger(dealsearch.class.getName()).log(Level.SEVERE, null, ex);
+                    } 
+                }    
+               
+            
+            }catch(IOException | SQLException e){JOptionPane.showConfirmDialog(null, " "+e.getMessage());}
+        
+        }
+            catch(NumberFormatException e){
+              JOptionPane.showConfirmDialog(null, " "+e.getMessage());
+            }
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
+
+    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+        // TODO add your handling code here:
+         
+        try{
+            int  i =Integer.parseInt(tablo.getValueAt(tablo.getSelectedRow(), 0).toString());
+        
+        dbo.dealSave kontrat= new dbo.dealSave();
+            ResultSet klm=kontrat.contractview(i);
+            try{
+                while(klm.next()){
+                    java.sql.Blob myBlob = klm.getBlob("InvDate"); 
+                    try (java.io.InputStream myInputStream = myBlob.getBinaryStream()) {
+                        String yol="C:\\"+klm.getString("InvName");
+                        FileOutputStream fos = new FileOutputStream(yol);
+                        byte[] buffer = new byte[klm.getInt("InvSize")];
+                        int bytesRead = 0;
+                        while ((bytesRead = myInputStream.read(buffer)) != -1) {
+                            fos.write(buffer, 0, bytesRead);
+                            fos.close();
+                        } 
+                        if ((new File(yol)).exists()) {
+ 
+			Process p = Runtime
+			   .getRuntime()
+			   .exec("rundll32 url.dll,FileProtocolHandler "+yol);
+			p.waitFor();
+                    } 
+                }   catch (InterruptedException ex) { 
+                        Logger.getLogger(dealsearch.class.getName()).log(Level.SEVERE, null, ex);
+                    } 
+                }    
+               
+            
+            }catch(IOException | SQLException e){JOptionPane.showConfirmDialog(null, " "+e.getMessage());}
+            
+        }catch(HeadlessException | NumberFormatException e){JOptionPane.showConfirmDialog(null, " "+e.getMessage());}
+    }//GEN-LAST:event_jMenuItem4ActionPerformed
+
+    private void viewlfc(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewlfc
+        // TODO add your handling code here:
+        try{ 
+        int  i =Integer.parseInt(tablo.getValueAt(tablo.getSelectedRow(), 0).toString());
+        dbo.dealSave kontrat= new dbo.dealSave();
+            ResultSet klm=kontrat.contractview(i);
+            try{
+                while(klm.next()){
+                    java.sql.Blob myBlob = klm.getBlob("LFCDate"); 
+                    try (java.io.InputStream myInputStream = myBlob.getBinaryStream()) {
+                        String yol="C:\\"+klm.getString("LFCName");
+                        FileOutputStream fos = new FileOutputStream(yol);
+                        byte[] buffer = new byte[klm.getInt("LFCSize")];
+                        int bytesRead = 0;
+                        while ((bytesRead = myInputStream.read(buffer)) != -1) {
+                            fos.write(buffer, 0, bytesRead);
+                            fos.close();
+                        } 
+                        if ((new File(yol)).exists()) {
+ 
+			Process p = Runtime
+			   .getRuntime()
+			   .exec("rundll32 url.dll,FileProtocolHandler "+yol);
+			p.waitFor();
+                    } 
+                }   catch (InterruptedException ex) { 
+            JOptionPane.showConfirmDialog(null, " "+ex.getMessage());                    } 
+                }    
+               
+            
+            }catch(IOException | SQLException e){JOptionPane.showConfirmDialog(null, " "+e.getMessage());}
+            
+        }catch(HeadlessException | NumberFormatException e){JOptionPane.showConfirmDialog(null, " "+e.getMessage());}
+    }//GEN-LAST:event_viewlfc
+
+    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
+        // TODO add your handling code here:
+        try{
+        int  i =Integer.parseInt(tablo.getValueAt(tablo.getSelectedRow(), 0).toString());
+        dbo.dealSave kontrat= new dbo.dealSave();
+            ResultSet klm=kontrat.contractview(i);
+            try{
+                while(klm.next()){
+                    java.sql.Blob myBlob = klm.getBlob("CBTCInvDate"); 
+                    try (java.io.InputStream myInputStream = myBlob.getBinaryStream()) {
+                        String yol="C:\\"+klm.getString("CBTCInvName");
+                        FileOutputStream fos = new FileOutputStream(yol);
+                        byte[] buffer = new byte[klm.getInt("CBTCInvSize")];
+                        int bytesRead = 0;
+                        while ((bytesRead = myInputStream.read(buffer)) != -1) {
+                            fos.write(buffer, 0, bytesRead);
+                            fos.close();
+                        } 
+                        if ((new File(yol)).exists()) {
+ 
+			Process p = Runtime
+			   .getRuntime()
+			   .exec("rundll32 url.dll,FileProtocolHandler "+yol);
+			p.waitFor();
+                    } 
+                }   catch (InterruptedException ex) { 
+                        Logger.getLogger(dealsearch.class.getName()).log(Level.SEVERE, null, ex);
+                    } 
+                }    
+               
+            
+            }catch(IOException | SQLException e){JOptionPane.showConfirmDialog(null, " "+e.getMessage());}
+            
+        }catch(HeadlessException | NumberFormatException e){JOptionPane.showConfirmDialog(null, " "+e.getMessage());}
+    }//GEN-LAST:event_jMenuItem6ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+                int i=0;
+        dbo.dealSave deal=new dbo.dealSave();
+        ResultSet rss=deal.monthview();
+        String [] kolonname={"ID","Seller","Buyer","Start","End","Payment","BG Issue","BG Validity","Contract","BG"};
+        Object veri[][]=new Object[100][10];
+        try {
+            while(rss.next()){
+                veri[i][0]=rss.getInt("id");
+                veri[i][1]=rss.getString("Seller");
+                veri[i][2]=rss.getString("Buyer");
+                veri[i][3]=rss.getDate("Start_Date");
+                veri[i][4]=rss.getDate("End_Date");
+                veri[i][5]=rss.getDate("Payment_Date");
+                veri[i][6]=rss.getDate("Issue");
+                veri[i][7]=rss.getDate("Validity");
+                veri[i][8]=rss.getString("ContractName");
+                veri[i][9]=rss.getString("Filename");           
+            
+                i++;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(dealsearch.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        tablo.setModel(new DefaultTableModel(veri,kolonname));
+        
+        jScrollPane1.setViewportView(tablo);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JMenuItem contract;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JMenuItem jMenuItem5;
+    private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JPopupMenu jPopupMenu1;
     private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JRadioButton jRadioButton2;

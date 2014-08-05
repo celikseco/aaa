@@ -6,11 +6,16 @@
 
 package TradeX;
 
+import java.awt.Cursor;
+import static java.awt.Cursor.WAIT_CURSOR;
+import java.awt.Dimension;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import javax.swing.JDesktopPane;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import javax.swing.SwingUtilities;
 import javax.swing.table.TableModel;
 
 /**
@@ -57,6 +62,7 @@ public class alteration extends javax.swing.JInternalFrame {
         setMaximizable(true);
         setResizable(true);
         setAutoscrolls(true);
+        setNormalBounds(new java.awt.Rectangle(250, 250, 95, 0));
         addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
             public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {
                 formInternalFrameActivated(evt);
@@ -201,6 +207,7 @@ public class alteration extends javax.swing.JInternalFrame {
                         .addComponent(type, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(45, 45, 45)
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, 0)
                         .addComponent(jButton2)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
@@ -220,7 +227,7 @@ public class alteration extends javax.swing.JInternalFrame {
                         .addComponent(type, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(11, 11, 11)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
                 .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -306,25 +313,36 @@ try (FileWriter output = new FileWriter(file)) {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+
         TableModel model=hulo.getModel();
         int i=model.getRowCount();
         int j=model.getColumnCount();
         int id=Integer.parseInt(deal_id.getText());
         dbo.dealSave uptodate=new dbo.dealSave();
-        
+ 
+         this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+
         for(int k=0;k<i;k++){
             for(int l=0;l<j-2;l++){
 //                System.out.println(" "+(double)hulo.getValueAt(k, l+1)+" "+(java.sql.Date)hulo.getValueAt(k, 0)+" "+Integer.parseInt(hulo.getColumnName(l+1))+" "+id);
-               try{ 
-                   
+               try{
+                       
+                              
               uptodate.updateSchedule( Double.parseDouble(hulo.getValueAt(k, l+1).toString()),java.sql.Date.valueOf(hulo.getValueAt(k, 0).toString()),Integer.parseInt(hulo.getColumnName(l+1)),id);                     
-              }catch(NumberFormatException e){System.err.println(e.getMessage());}}
+             
+               }catch(NumberFormatException e){System.err.println(e.getMessage());
+              }
+            }
         }
         
         this.dispose();
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    public int veriyiguncelle(int k,int l,int i,int j){
+
+        return (int)(k+1)*(l+1)*100/(i*j);
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static javax.swing.JTextField buyer;
