@@ -298,12 +298,7 @@ public class submit extends javax.swing.JFrame {
         bb.setVisible(true);    }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
-        NewJFrame attir=new NewJFrame();
-        jDesktopPane1.add(attir);
-        attir.setVisible(true);
-        for (int i=0;i<1000;i++){
-        NewJFrame.jProgressBar1.setValue(i);
-        }
+
         
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
