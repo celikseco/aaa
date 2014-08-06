@@ -64,7 +64,7 @@ public class submit extends javax.swing.JFrame {
         jDesktopPane1.setAutoscrolls(true);
         jDesktopPane1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jDesktopPane1.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
-        jDesktopPane1.setPreferredSize(new java.awt.Dimension(1551, 1151));
+        jDesktopPane1.setPreferredSize(new java.awt.Dimension(1651, 1151));
 
         jTextField1.setEditable(false);
         jTextField1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
@@ -102,7 +102,7 @@ public class submit extends javax.swing.JFrame {
         jDesktopPane1Layout.setVerticalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane1Layout.createSequentialGroup()
-                .addGap(0, 701, Short.MAX_VALUE)
+                .addGap(0, 721, Short.MAX_VALUE)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jDesktopPane1.setLayer(jPanel2, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -125,17 +125,22 @@ public class submit extends javax.swing.JFrame {
         jMenuBar3.setAutoscrolls(true);
         jMenuBar3.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         jMenuBar3.setMargin(new java.awt.Insets(0, 0, 5, 0));
+        jMenuBar3.setMaximumSize(new java.awt.Dimension(200, 32767));
+        jMenuBar3.setMinimumSize(new java.awt.Dimension(120, 30));
         jMenuBar3.setOpaque(false);
-        jMenuBar3.setPreferredSize(new java.awt.Dimension(260, 50));
+        jMenuBar3.setPreferredSize(new java.awt.Dimension(120, 30));
+        jMenuBar3.setRequestFocusEnabled(false);
 
-        jMenu1.setBorder(null);
+        jMenu1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/utilities/dela2424.png"))); // NOI18N
         jMenu1.setText("Deal");
         jMenu1.setBorderPainted(true);
         jMenu1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jMenu1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jMenu1.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-        jMenu1.setPreferredSize(new java.awt.Dimension(100, 50));
+        jMenu1.setMinimumSize(new java.awt.Dimension(100, 30));
+        jMenu1.setName(""); // NOI18N
+        jMenu1.setPreferredSize(new java.awt.Dimension(100, 30));
 
         jMenuItem2.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_N, java.awt.event.InputEvent.CTRL_MASK));
         jMenuItem2.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
@@ -183,13 +188,17 @@ public class submit extends javax.swing.JFrame {
 
         jMenuBar3.add(jMenu1);
 
+        jMenu2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jMenu2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/utilities/1392338121_configuration.png"))); // NOI18N
         jMenu2.setText("Edit");
         jMenu2.setBorderPainted(true);
         jMenu2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jMenu2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jMenu2.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-        jMenu2.setPreferredSize(new java.awt.Dimension(100, 50));
+        jMenu2.setMinimumSize(new java.awt.Dimension(100, 30));
+        jMenu2.setName(""); // NOI18N
+        jMenu2.setPreferredSize(new java.awt.Dimension(100, 30));
+        jMenu2.setVerifyInputWhenFocusTarget(false);
 
         jMenuItem5.setText("ekleme");
         jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
@@ -223,13 +232,16 @@ public class submit extends javax.swing.JFrame {
 
         jMenuBar3.add(jMenu2);
 
+        jMenu3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jMenu3.setText("Data");
         jMenu3.setToolTipText("");
         jMenu3.setBorderPainted(true);
         jMenu3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jMenu3.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jMenu3.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-        jMenu3.setPreferredSize(new java.awt.Dimension(100, 50));
+        jMenu3.setMaximumSize(new java.awt.Dimension(100, 32767));
+        jMenu3.setMinimumSize(new java.awt.Dimension(100, 30));
+        jMenu3.setPreferredSize(new java.awt.Dimension(100, 30));
         jMenu3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenu3ActionPerformed(evt);
@@ -265,7 +277,7 @@ public class submit extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jDesktopPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 722, Short.MAX_VALUE)
+            .addComponent(jDesktopPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 742, Short.MAX_VALUE)
         );
 
         pack();
