@@ -57,6 +57,7 @@ public class alteration extends javax.swing.JInternalFrame {
         jButton1 = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
 
+        setBackground(new java.awt.Color(51, 102, 255));
         setClosable(true);
         setIconifiable(true);
         setMaximizable(true);
