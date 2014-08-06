@@ -15,6 +15,7 @@ import java.sql.Statement;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.sql.Date;
+import java.sql.Types;
 /**
  *
  * @author seckin.celik
@@ -526,6 +527,29 @@ public class dealSave {
         ResultSet rs = stmts.executeQuery(query);
              return rs;
              }   catch(ClassNotFoundException | IllegalAccessException | InstantiationException | SQLException e){return null;}
+                 finally {
+			try { if (rs != null) rs.close(); } catch (SQLException e) {}
+			try { if (stmt != null) stmt.close(); } catch (SQLException e) {}
+			try { if (conn != null) conn.close(); } catch (SQLException e) {}
+		}
+                
+}
+    public int monthvieww(){
+                 try{             
+
+                        Class.forName("com.mysql.jdbc.Driver").newInstance();
+			                 
+                  java.sql.Connection con = DriverManager.getConnection(connectionUrl, connectionUser, connectionPassword);
+                
+        
+        cs = con.prepareCall("{?=call deal_sayisi()};");
+    
+  int count = 0;
+        cs.registerOutParameter(1, Types.INTEGER);
+        cs.execute();
+        count = cs.getInt(1);
+        return count;
+             }   catch(ClassNotFoundException | IllegalAccessException | InstantiationException | SQLException e){return 0;}
                  finally {
 			try { if (rs != null) rs.close(); } catch (SQLException e) {}
 			try { if (stmt != null) stmt.close(); } catch (SQLException e) {}

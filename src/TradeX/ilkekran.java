@@ -3232,8 +3232,8 @@ private void initComponent() {
             Logger.getLogger(ilkekran.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-        String kolonName[]=new String[]{"DATE","0", "1",  "2", "3", "4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","SUM"};
-        Object[][]veriler=new Object[(int)aperture][26] ;
+        String kolonName[]=new String[]{"DATE","0", "1",  "2", "3", "4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23"};
+        Object[][]veriler=new Object[(int)aperture][25] ;
         alteration.hulo.setModel(new DefaultTableModel(veriler,kolonName));
         for(int days=0;days<another;days++){
             alteration.hulo.getModel().setValueAt(new java.sql.Date(dFr.getTime()), days, 0);

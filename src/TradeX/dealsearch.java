@@ -141,7 +141,7 @@ public class dealsearch extends javax.swing.JInternalFrame {
         });
 
         buttonGroup1.add(jRadioButton1);
-        jRadioButton1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jRadioButton1.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         jRadioButton1.setText("All");
         jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -150,7 +150,7 @@ public class dealsearch extends javax.swing.JInternalFrame {
         });
 
         buttonGroup1.add(jRadioButton2);
-        jRadioButton2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jRadioButton2.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         jRadioButton2.setText("Last Month");
         jRadioButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -159,7 +159,7 @@ public class dealsearch extends javax.swing.JInternalFrame {
         });
 
         buttonGroup1.add(jRadioButton3);
-        jRadioButton3.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jRadioButton3.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         jRadioButton3.setText("Next Month");
         jRadioButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -222,6 +222,7 @@ public class dealsearch extends javax.swing.JInternalFrame {
         jScrollPane1.setViewportView(tablo);
 
         buttonGroup1.add(jRadioButton4);
+        jRadioButton4.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         jRadioButton4.setText("This Month");
         jRadioButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -246,17 +247,17 @@ public class dealsearch extends javax.swing.JInternalFrame {
                     .addComponent(jScrollPane1)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jRadioButton1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(18, 18, 18)
                         .addComponent(jRadioButton2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(24, 24, 24)
                         .addComponent(jRadioButton4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(18, 18, 18)
                         .addComponent(jRadioButton3)
-                        .addGap(48, 48, 48)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(35, 35, 35)
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 516, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -267,18 +268,18 @@ public class dealsearch extends javax.swing.JInternalFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jRadioButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jRadioButton1)
                         .addComponent(jRadioButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jRadioButton4)
                         .addComponent(jRadioButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jRadioButton4)
                                 .addComponent(jLabel2))
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(15, 15, 15)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -302,10 +303,14 @@ public class dealsearch extends javax.swing.JInternalFrame {
         });
         jRadioButton1.setSelected(true);
         int i=0;
+
         dbo.dealSave deal=new dbo.dealSave();
+        int j=deal.monthvieww();
+
         ResultSet rss=deal.monthview();
+        
         String [] kolonname={"ID","Seller","Buyer","Start","End","Payment","BG Issue","BG Validity","Contract","BG"};
-        Object veri[][]=new Object[100][10];
+        Object veri[][]=new Object[j][10];
         try {
             while(rss.next()){
                 veri[i][0]=rss.getInt("id");
@@ -517,12 +522,13 @@ public class dealsearch extends javax.swing.JInternalFrame {
                 tabloKeyReleased(evt);
             }
         });
-                                               String columnName[]={"ID","Seller","Buyer","Start","End","Payment","BG Issue","BG Validity","Contract","BG"};
-        Object oss[][]=new Object[100][10];
+         
         int i=0;
         dbo.dealSave nextmonth=new dbo.dealSave();
         ResultSet mont=nextmonth.monthview();
-        
+        int j=nextmonth.monthvieww();
+        String columnName[]={"ID","Seller","Buyer","Start","End","Payment","BG Issue","BG Validity","Contract","BG"};
+        Object oss[][]=new Object[j][10];
                     try {
                     while(mont.next()){
                       oss[i][0]=mont.getString("id");
@@ -547,7 +553,8 @@ public class dealsearch extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         
         try{
-        int  i =Integer.parseInt(tablo.getValueAt(tablo.getSelectedRow(), 0).toString());
+            
+        int  i = Integer.parseInt(tablo.getValueAt(tablo.getSelectedRow(), 0).toString());
         dbo.dealSave kontrat= new dbo.dealSave();
             ResultSet klm=kontrat.contractview(i);
             try{
