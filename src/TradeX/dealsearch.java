@@ -51,12 +51,14 @@ public class dealsearch extends javax.swing.JInternalFrame {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
         jPopupMenu1 = new javax.swing.JPopupMenu();
+        jMenu1 = new javax.swing.JMenu();
         contract = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenuItem3 = new javax.swing.JMenuItem();
         jMenuItem4 = new javax.swing.JMenuItem();
         jMenuItem5 = new javax.swing.JMenuItem();
         jMenuItem6 = new javax.swing.JMenuItem();
+        jMenuItem1 = new javax.swing.JMenuItem();
         jRadioButton1 = new javax.swing.JRadioButton();
         jRadioButton2 = new javax.swing.JRadioButton();
         jRadioButton3 = new javax.swing.JRadioButton();
@@ -68,22 +70,28 @@ public class dealsearch extends javax.swing.JInternalFrame {
         jLabel2 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
 
+        jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/utilities/open1616.png"))); // NOI18N
+        jMenu1.setText("Open");
+        jMenu1.setToolTipText("");
+
         contract.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        contract.setText("View Contract");
+        contract.setText("Contract");
+        contract.setToolTipText("");
         contract.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 contractview(evt);
             }
         });
-        jPopupMenu1.add(contract);
+        jMenu1.add(contract);
 
-        jMenuItem2.setText("View B/G");
+        jMenuItem2.setText(" B/G");
+        jMenuItem2.setToolTipText("");
         jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bgview(evt);
             }
         });
-        jPopupMenu1.add(jMenuItem2);
+        jMenu1.add(jMenuItem2);
 
         jMenuItem3.setText("view CBTC Contract");
         jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
@@ -91,33 +99,40 @@ public class dealsearch extends javax.swing.JInternalFrame {
                 jMenuItem3ActionPerformed(evt);
             }
         });
-        jPopupMenu1.add(jMenuItem3);
+        jMenu1.add(jMenuItem3);
 
-        jMenuItem4.setText("view Energy Invoice");
+        jMenuItem4.setText(" Energy Invoice");
         jMenuItem4.setToolTipText("");
         jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem4ActionPerformed(evt);
             }
         });
-        jPopupMenu1.add(jMenuItem4);
+        jMenu1.add(jMenuItem4);
 
-        jMenuItem5.setText("view LFC");
+        jMenuItem5.setText(" LFC");
         jMenuItem5.setToolTipText("");
         jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 viewlfc(evt);
             }
         });
-        jPopupMenu1.add(jMenuItem5);
+        jMenu1.add(jMenuItem5);
 
-        jMenuItem6.setText("view CBTC Invoice");
+        jMenuItem6.setText(" CBTC Invoice");
         jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem6ActionPerformed(evt);
             }
         });
-        jPopupMenu1.add(jMenuItem6);
+        jMenu1.add(jMenuItem6);
+
+        jPopupMenu1.add(jMenu1);
+
+        jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/utilities/Money1616.png"))); // NOI18N
+        jMenuItem1.setText("Profit");
+        jMenuItem1.setToolTipText("");
+        jPopupMenu1.add(jMenuItem1);
 
         setBackground(new java.awt.Color(255, 255, 255));
         setClosable(true);
@@ -309,36 +324,46 @@ public class dealsearch extends javax.swing.JInternalFrame {
 
         ResultSet rss=deal.monthview();
         
-        String [] kolonname={"ID","Seller","Buyer","Start","End","Payment","BG Issue","BG Validity","Contract","BG"};
-        Object veri[][]=new Object[j][10];
+        String [] kolonname={"Select","ID","Seller","Buyer","Start","End","Payment","BG Issue","BG Validity","Contract","BG"};
+        Object veri[][]=new Object[j][11];
         try {
             while(rss.next()){
-                veri[i][0]=rss.getInt("id");
-                veri[i][1]=rss.getString("Seller");
-                veri[i][2]=rss.getString("Buyer");
-                veri[i][3]=rss.getDate("Start_Date");
-                veri[i][4]=rss.getDate("End_Date");
-                veri[i][5]=rss.getDate("Payment_Date");
-                veri[i][6]=rss.getDate("Issue");
-                veri[i][7]=rss.getDate("Validity");
-                veri[i][8]=rss.getString("ContractName");
-                veri[i][9]=rss.getString("Filename");           
-            
+                veri[i][1]=rss.getInt("id");
+                veri[i][2]=rss.getString("Seller");
+                veri[i][3]=rss.getString("Buyer");
+                veri[i][4]=rss.getDate("Start_Date");
+                veri[i][5]=rss.getDate("End_Date");
+                veri[i][6]=rss.getDate("Payment_Date");
+                veri[i][7]=rss.getDate("Issue");
+                veri[i][8]=rss.getDate("Validity");
+                veri[i][9]=rss.getString("ContractName");
+                veri[i][10]=rss.getString("Filename");           
+                ;         
+
                 i++;
             }
         } catch (SQLException ex) {
             Logger.getLogger(dealsearch.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-        tablo.setModel(new DefaultTableModel(veri,kolonname));
+        tablo.setModel(new DefaultTableModel(veri,kolonname)
+                    {
+            Class[] types = new Class [] {
+                java.lang.Boolean.class,java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
         
         jScrollPane1.setViewportView(tablo);
     }//GEN-LAST:event_formInternalFrameOpened
 
     private void jTextField1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyReleased
         // TODO add your handling code here:
-         String columnName[]={"ID","Seller","Buyer","Start","End","Payment","BG Issue","BG Validity","Contract","BG"};
-        Object oss[][]=new Object[100][10];
+         String columnName[]={"Select","ID","Seller","Buyer","Start","End","Payment","BG Issue","BG Validity","Contract","BG"};
+        Object oss[][]=new Object[100][11];
         ResultSet rs1=null;
         int li=0; 
         
@@ -358,22 +383,30 @@ public class dealsearch extends javax.swing.JInternalFrame {
          
             try {
                     while(rs1.next()){
-                      oss[li][0]=rs1.getString("id");
-                      oss[li][1]=rs1.getString("Seller");
-                      oss[li][2]=rs1.getString("Buyer");
-                      oss[li][3]=rs1.getString("Start_Date");
-                      oss[li][4]=rs1.getString("End_Date");
-                      oss[li][5]=rs1.getString("Payment_Date");
-                      oss[li][6]=rs1.getString("Issue");
-                      oss[li][7]=rs1.getString("Validity");
-                      oss[li][8]=rs1.getString("ContractName");
-                      oss[li][9]=rs1.getString("Filename");
+                      oss[li][1]=rs1.getString("id");
+                      oss[li][2]=rs1.getString("Seller");
+                      oss[li][3]=rs1.getString("Buyer");
+                      oss[li][4]=rs1.getString("Start_Date");
+                      oss[li][5]=rs1.getString("End_Date");
+                      oss[li][6]=rs1.getString("Payment_Date");
+                      oss[li][7]=rs1.getString("Issue");
+                      oss[li][8]=rs1.getString("Validity");
+                      oss[li][9]=rs1.getString("ContractName");
+                      oss[li][10]=rs1.getString("Filename");
                       
                         li++;
         }
                     
-                    tablo.setModel(new DefaultTableModel(oss,columnName));
-       
+ tablo.setModel(new DefaultTableModel(oss,columnName)
+                    {
+            Class[] types = new Class [] {
+                java.lang.Boolean.class,java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });       
             } catch (SQLException ex) {
                     System.out.println(ex.toString());
     }
@@ -398,30 +431,42 @@ public class dealsearch extends javax.swing.JInternalFrame {
                 tabloKeyReleased(evt);
             }
         });
-        String columnName[]={"ID","Seller","Buyer","Start","End","Payment","BG Issue","BG Validity","Contract","BG"};
-        Object oss[][]=new Object[100][10];
+        String columnName[]={"Select","ID","Seller","Buyer","Start","End","Payment","BG Issue","BG Validity","Contract","BG"};
         int i=0;
         dbo.dealSave nextmonth=new dbo.dealSave();
         ResultSet mont=nextmonth.monthNext();
-        
+                int j=nextmonth.monthvieww();
+        Object oss[][]=new Object[j][11];
+
                     try {
                     while(mont.next()){
-                      oss[i][0]=mont.getString("id");
-                      oss[i][1]=mont.getString("Seller");
-                      oss[i][2]=mont.getString("Buyer");
-                      oss[i][3]=mont.getString("Start_Date");
-                      oss[i][4]=mont.getString("End_Date");
-                      oss[i][5]=mont.getString("Payment_Date");
-                      oss[i][6]=mont.getString("Issue");
-                      oss[i][7]=mont.getString("Validity");
-                      oss[i][8]=mont.getString("ContractName");
-                      oss[i][9]=mont.getString("Filename");
+                      oss[i][1]=mont.getString("id");
+                      oss[i][2]=mont.getString("Seller");
+                      oss[i][3]=mont.getString("Buyer");
+                      oss[i][4]=mont.getString("Start_Date");
+                      oss[i][5]=mont.getString("End_Date");
+                      oss[i][6]=mont.getString("Payment_Date");
+                      oss[i][7]=mont.getString("Issue");
+                      oss[i][8]=mont.getString("Validity");
+                      oss[i][9]=mont.getString("ContractName");
+                      oss[i][10]=mont.getString("Filename");
                       
                         i++;
         }
                     }catch(SQLException e){}              
-        tablo.setModel(new DefaultTableModel(oss,columnName));
-               tablo.addMouseListener(new java.awt.event.MouseAdapter() {
+                     tablo.setModel(new DefaultTableModel(oss,columnName)
+                    {
+            Class[] types = new Class [] {
+                java.lang.Boolean.class,java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        
+        jScrollPane1.setViewportView(tablo);
+                    tablo.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseReleased(java.awt.event.MouseEvent evt) {
                 tabloMouseReleased(evt);
             }
@@ -445,30 +490,43 @@ public class dealsearch extends javax.swing.JInternalFrame {
                 tabloKeyReleased(evt);
             }
         });
-                 String columnName[]={"ID","Seller","Buyer","Start","End","Payment","BG Issue","BG Validity","Contract","BG"};
-        Object oss[][]=new Object[100][10];
+                 String columnName[]={"Select","ID","Seller","Buyer","Start","End","Payment","BG Issue","BG Validity","Contract","BG"};
         int i=0;
         dbo.dealSave nextmonth=new dbo.dealSave();
+                int j=nextmonth.monthvieww();
+
         ResultSet mont=nextmonth.previousmonth();
-        
+                Object oss[][]=new Object[j][11];
+
                     try {
                     while(mont.next()){
-                      oss[i][0]=mont.getString("id");
-                      oss[i][1]=mont.getString("Seller");
-                      oss[i][2]=mont.getString("Buyer");
-                      oss[i][3]=mont.getString("Start_Date");
-                      oss[i][4]=mont.getString("End_Date");
-                      oss[i][5]=mont.getString("Payment_Date");
-                      oss[i][6]=mont.getString("Issue");
-                      oss[i][7]=mont.getString("Validity");
-                      oss[i][8]=mont.getString("ContractName");
-                      oss[i][9]=mont.getString("Filename");
+                      oss[i][1]=mont.getString("id");
+                      oss[i][2]=mont.getString("Seller");
+                      oss[i][3]=mont.getString("Buyer");
+                      oss[i][4]=mont.getString("Start_Date");
+                      oss[i][5]=mont.getString("End_Date");
+                      oss[i][6]=mont.getString("Payment_Date");
+                      oss[i][7]=mont.getString("Issue");
+                      oss[i][8]=mont.getString("Validity");
+                      oss[i][9]=mont.getString("ContractName");
+                      oss[i][10]=mont.getString("Filename");
                       
                         i++;
         }
                     }catch(Exception e){}              
-        tablo.setModel(new DefaultTableModel(oss,columnName)); 
-                
+                     tablo.setModel(new DefaultTableModel(oss,columnName)
+                    {
+            Class[] types = new Class [] {
+                java.lang.Boolean.class,java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        
+        jScrollPane1.setViewportView(tablo);
+                    
     }//GEN-LAST:event_jRadioButton2ActionPerformed
 
     private void jRadioButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton4ActionPerformed
@@ -484,30 +542,43 @@ public class dealsearch extends javax.swing.JInternalFrame {
             }
         });
         
-                                 String columnName[]={"ID","Seller","Buyer","Start","End","Payment","BG Issue","BG Validity","Contract","BG"};
-        Object oss[][]=new Object[100][10];
+         String columnName[]={"Select","ID","Seller","Buyer","Start","End","Payment","BG Issue","BG Validity","Contract","BG"};
         int i=0;
         dbo.dealSave nextmonth=new dbo.dealSave();
         ResultSet mont=nextmonth.currentmonth();
+        int j=nextmonth.monthvieww();
+        Object oss[][]=new Object[j][11];
+
         
                     try {
                     while(mont.next()){
-                      oss[i][0]=mont.getString("id");
-                      oss[i][1]=mont.getString("Seller");
-                      oss[i][2]=mont.getString("Buyer");
-                      oss[i][3]=mont.getString("Start_Date");
-                      oss[i][4]=mont.getString("End_Date");
-                      oss[i][5]=mont.getString("Payment_Date");
-                      oss[i][6]=mont.getString("Issue");
-                      oss[i][7]=mont.getString("Validity");
-                      oss[i][8]=mont.getString("ContractName");
-                      oss[i][9]=mont.getString("Filename");
+                      oss[i][1]=mont.getString("id");
+                      oss[i][2]=mont.getString("Seller");
+                      oss[i][3]=mont.getString("Buyer");
+                      oss[i][4]=mont.getString("Start_Date");
+                      oss[i][5]=mont.getString("End_Date");
+                      oss[i][6]=mont.getString("Payment_Date");
+                      oss[i][7]=mont.getString("Issue");
+                      oss[i][8]=mont.getString("Validity");
+                      oss[i][9]=mont.getString("ContractName");
+                      oss[i][10]=mont.getString("Filename");
                       
                         i++;
         }
                     }catch(SQLException e){}              
-        tablo.setModel(new DefaultTableModel(oss,columnName)); 
-                
+                     tablo.setModel(new DefaultTableModel(oss,columnName)
+                    {
+            Class[] types = new Class [] {
+                java.lang.Boolean.class,java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        
+        jScrollPane1.setViewportView(tablo);
+                    
     }//GEN-LAST:event_jRadioButton4ActionPerformed
 
     private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
@@ -527,67 +598,84 @@ public class dealsearch extends javax.swing.JInternalFrame {
         dbo.dealSave nextmonth=new dbo.dealSave();
         ResultSet mont=nextmonth.monthview();
         int j=nextmonth.monthvieww();
-        String columnName[]={"ID","Seller","Buyer","Start","End","Payment","BG Issue","BG Validity","Contract","BG"};
-        Object oss[][]=new Object[j][10];
+        String columnName[]={"Select","ID","Seller","Buyer","Start","End","Payment","BG Issue","BG Validity","Contract","BG"};
+        Object oss[][]=new Object[j][11];
                     try {
                     while(mont.next()){
-                      oss[i][0]=mont.getString("id");
-                      oss[i][1]=mont.getString("Seller");
-                      oss[i][2]=mont.getString("Buyer");
-                      oss[i][3]=mont.getString("Start_Date");
-                      oss[i][4]=mont.getString("End_Date");
-                      oss[i][5]=mont.getString("Payment_Date");
-                      oss[i][6]=mont.getString("Issue");
-                      oss[i][7]=mont.getString("Validity");
-                      oss[i][8]=mont.getString("ContractName");
-                      oss[i][9]=mont.getString("Filename");
+                      oss[i][1]=mont.getString("id");
+                      oss[i][2]=mont.getString("Seller");
+                      oss[i][3]=mont.getString("Buyer");
+                      oss[i][4]=mont.getString("Start_Date");
+                      oss[i][5]=mont.getString("End_Date");
+                      oss[i][6]=mont.getString("Payment_Date");
+                      oss[i][7]=mont.getString("Issue");
+                      oss[i][8]=mont.getString("Validity");
+                      oss[i][9]=mont.getString("ContractName");
+                      oss[i][10]=mont.getString("Filename");
                       
                         i++;
         }
                     }catch(SQLException e){}              
-        tablo.setModel(new DefaultTableModel(oss,columnName)); 
+
+                     tablo.setModel(new DefaultTableModel(oss,columnName)
+                    {
+            Class[] types = new Class [] {
+                java.lang.Boolean.class,java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
         
+        jScrollPane1.setViewportView(tablo);
+                    
     }//GEN-LAST:event_jRadioButton1ActionPerformed
 
     private void contractview(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_contractview
         // TODO add your handling code here:
         
-        try{
-            
-        int  i = Integer.parseInt(tablo.getValueAt(tablo.getSelectedRow(), 0).toString());
+        try{            
+        int  i = Integer.parseInt(tablo.getValueAt(tablo.getSelectedRow(), 1).toString());
+      
         dbo.dealSave kontrat= new dbo.dealSave();
             ResultSet klm=kontrat.contractview(i);
-            try{
-                while(klm.next()){
-                    java.sql.Blob myBlob = klm.getBlob("ContractDate"); 
-                    try (java.io.InputStream myInputStream = myBlob.getBinaryStream()) {
-                        String yol="C:\\"+klm.getString("ContractName");
-                        FileOutputStream fos = new FileOutputStream(yol);
-                        byte[] buffer = new byte[klm.getInt("ContractSize")];
-                        int bytesRead = 0;
-                        while ((bytesRead = myInputStream.read(buffer)) != -1) {
-                            fos.write(buffer, 0, bytesRead);
-                            fos.close();
-                        } 
-                        if ((new File(yol)).exists()) {
- 
-			Process p = Runtime
-			   .getRuntime()
-			   .exec("rundll32 url.dll,FileProtocolHandler "+yol);
-			p.waitFor();
-                    } 
-                }   catch (InterruptedException ex) { 
-                        Logger.getLogger(dealsearch.class.getName()).log(Level.SEVERE, null, ex);
-                    } 
-                }    
-               
             
-            }catch(IOException | SQLException e){
-                JOptionPane.showConfirmDialog(null, " "+e.getMessage());
-            }
+                    try{
+                        while(klm.next()){
+                            java.sql.Blob myBlob = klm.getBlob("ContractDate");
+                            try (java.io.InputStream myInputStream = myBlob.getBinaryStream()) {
+                                String yol="C:\\temp\\"+klm.getString("ContractName");
+                                FileOutputStream fos = new FileOutputStream(yol);
+                                byte[] buffer = new byte[klm.getInt("ContractSize")];
+                                int bytesRead = 0;
+                                while ((bytesRead = myInputStream.read(buffer)) != -1) {
+                                    fos.write(buffer, 0, bytesRead);
+                                    fos.close();
+                                }
+                                if ((new File(yol)).exists()) {
+                                    
+                                    Process p = Runtime
+                                            .getRuntime()
+                                            .exec("rundll32 url.dll,FileProtocolHandler "+yol);
+                                    p.waitFor();
+                                }
+                            }   catch (InterruptedException ex) {
+                                Logger.getLogger(dealsearch.class.getName()).log(Level.SEVERE, null, ex);
+                            }
+                        }
+                        
+                        
+                    }catch(IOException | SQLException e){
+                        JOptionPane.showConfirmDialog(null, " "+e.getMessage());
+                    }
+
+            
         }catch(HeadlessException | NumberFormatException e){
         JOptionPane.showConfirmDialog(null, " "+e.getMessage());
-        }
+        
+}
+        
     }//GEN-LAST:event_contractview
 
     private void tabloKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tabloKeyReleased
@@ -604,14 +692,14 @@ public class dealsearch extends javax.swing.JInternalFrame {
     private void bgview(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bgview
         // TODO add your handling code here:
         try{ 
-        int  i =Integer.parseInt((tablo.getValueAt(tablo.getSelectedRow(), 0).toString()));
+        int  i =Integer.parseInt((tablo.getValueAt(tablo.getSelectedRow(), 1).toString()));
         dbo.dealSave kontrat= new dbo.dealSave();
             ResultSet klm=kontrat.contractview(i);
             try{
                 while(klm.next()){
                     java.sql.Blob myBlob = klm.getBlob("datay"); 
                     try (java.io.InputStream myInputStream = myBlob.getBinaryStream()) {
-                        String yol="C:\\"+klm.getString("FileName");
+                        String yol="C:\\temp\\"+klm.getString("FileName");
                         FileOutputStream fos = new FileOutputStream(yol);
                         byte[] buffer = new byte[klm.getInt("Length")];
                         int bytesRead = 0;
@@ -644,14 +732,14 @@ public class dealsearch extends javax.swing.JInternalFrame {
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
         // TODO add your handling code here:
         try{ 
-        int  i =Integer.parseInt(tablo.getValueAt(tablo.getSelectedRow(), 0).toString());
+        int  i =Integer.parseInt(tablo.getValueAt(tablo.getSelectedRow(), 1).toString());
         dbo.dealSave kontrat= new dbo.dealSave();
             ResultSet klm=kontrat.contractview(i);
             try{
                 while(klm.next()){
                     java.sql.Blob myBlob = klm.getBlob("CBTCDate"); 
                     try (java.io.InputStream myInputStream = myBlob.getBinaryStream()) {
-                        String yol="C:\\"+klm.getString("CBTCName");
+                        String yol="C:\\temp\\"+klm.getString("CBTCName");
                         FileOutputStream fos = new FileOutputStream(yol);
                         byte[] buffer = new byte[klm.getInt("CBTCSize")];
                         int bytesRead = 0;
@@ -684,7 +772,7 @@ public class dealsearch extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
          
         try{
-            int  i =Integer.parseInt(tablo.getValueAt(tablo.getSelectedRow(), 0).toString());
+            int  i =Integer.parseInt(tablo.getValueAt(tablo.getSelectedRow(), 1).toString());
         
         dbo.dealSave kontrat= new dbo.dealSave();
             ResultSet klm=kontrat.contractview(i);
@@ -692,7 +780,7 @@ public class dealsearch extends javax.swing.JInternalFrame {
                 while(klm.next()){
                     java.sql.Blob myBlob = klm.getBlob("InvDate"); 
                     try (java.io.InputStream myInputStream = myBlob.getBinaryStream()) {
-                        String yol="C:\\"+klm.getString("InvName");
+                        String yol="C:\\temp\\"+klm.getString("InvName");
                         FileOutputStream fos = new FileOutputStream(yol);
                         byte[] buffer = new byte[klm.getInt("InvSize")];
                         int bytesRead = 0;
@@ -721,14 +809,14 @@ public class dealsearch extends javax.swing.JInternalFrame {
     private void viewlfc(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewlfc
         // TODO add your handling code here:
         try{ 
-        int  i =Integer.parseInt(tablo.getValueAt(tablo.getSelectedRow(), 0).toString());
+        int  i =Integer.parseInt(tablo.getValueAt(tablo.getSelectedRow(), 1).toString());
         dbo.dealSave kontrat= new dbo.dealSave();
             ResultSet klm=kontrat.contractview(i);
             try{
                 while(klm.next()){
                     java.sql.Blob myBlob = klm.getBlob("LFCDate"); 
                     try (java.io.InputStream myInputStream = myBlob.getBinaryStream()) {
-                        String yol="C:\\"+klm.getString("LFCName");
+                        String yol="C:\\temp\\"+klm.getString("LFCName");
                         FileOutputStream fos = new FileOutputStream(yol);
                         byte[] buffer = new byte[klm.getInt("LFCSize")];
                         int bytesRead = 0;
@@ -756,14 +844,14 @@ public class dealsearch extends javax.swing.JInternalFrame {
     private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
         // TODO add your handling code here:
         try{
-        int  i =Integer.parseInt(tablo.getValueAt(tablo.getSelectedRow(), 0).toString());
+        int  i =Integer.parseInt(tablo.getValueAt(tablo.getSelectedRow(), 1).toString());
         dbo.dealSave kontrat= new dbo.dealSave();
             ResultSet klm=kontrat.contractview(i);
             try{
                 while(klm.next()){
                     java.sql.Blob myBlob = klm.getBlob("CBTCInvDate"); 
                     try (java.io.InputStream myInputStream = myBlob.getBinaryStream()) {
-                        String yol="C:\\"+klm.getString("CBTCInvName");
+                        String yol="C:\\temp\\"+klm.getString("CBTCInvName");
                         FileOutputStream fos = new FileOutputStream(yol);
                         byte[] buffer = new byte[klm.getInt("CBTCInvSize")];
                         int bytesRead = 0;
@@ -794,20 +882,22 @@ public class dealsearch extends javax.swing.JInternalFrame {
                 int i=0;
         dbo.dealSave deal=new dbo.dealSave();
         ResultSet rss=deal.monthview();
-        String [] kolonname={"ID","Seller","Buyer","Start","End","Payment","BG Issue","BG Validity","Contract","BG"};
-        Object veri[][]=new Object[100][10];
+                int j=deal.monthvieww();
+
+        String [] kolonname={"Select","ID","Seller","Buyer","Start","End","Payment","BG Issue","BG Validity","Contract","BG"};
+        Object veri[][]=new Object[j][11];
         try {
             while(rss.next()){
-                veri[i][0]=rss.getInt("id");
-                veri[i][1]=rss.getString("Seller");
-                veri[i][2]=rss.getString("Buyer");
-                veri[i][3]=rss.getDate("Start_Date");
-                veri[i][4]=rss.getDate("End_Date");
-                veri[i][5]=rss.getDate("Payment_Date");
-                veri[i][6]=rss.getDate("Issue");
-                veri[i][7]=rss.getDate("Validity");
-                veri[i][8]=rss.getString("ContractName");
-                veri[i][9]=rss.getString("Filename");           
+                veri[i][1]=rss.getInt("id");
+                veri[i][2]=rss.getString("Seller");
+                veri[i][3]=rss.getString("Buyer");
+                veri[i][4]=rss.getDate("Start_Date");
+                veri[i][5]=rss.getDate("End_Date");
+                veri[i][6]=rss.getDate("Payment_Date");
+                veri[i][7]=rss.getDate("Issue");
+                veri[i][8]=rss.getDate("Validity");
+                veri[i][9]=rss.getString("ContractName");
+                veri[i][10]=rss.getString("Filename");           
             
                 i++;
             }
@@ -815,7 +905,16 @@ public class dealsearch extends javax.swing.JInternalFrame {
             Logger.getLogger(dealsearch.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-        tablo.setModel(new DefaultTableModel(veri,kolonname));
+                           tablo.setModel(new DefaultTableModel(veri,kolonname)
+                    {
+            Class[] types = new Class [] {
+                java.lang.Boolean.class,java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
         
         jScrollPane1.setViewportView(tablo);
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -827,6 +926,8 @@ public class dealsearch extends javax.swing.JInternalFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
