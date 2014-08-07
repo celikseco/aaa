@@ -2604,12 +2604,7 @@ private void initComponent() {
         tarif=jRadioButton5.getText();
         }
         
-         if(jRadioButton4.isSelected()){
-            profil=jRadioButton2.getText();
-        }
-        else{
-        profil=jRadioButton3.getText();
-        }
+
          
         if(tr_tr.isSelected()){
             direction =tr_tr.getText();
