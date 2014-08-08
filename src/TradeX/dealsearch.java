@@ -453,7 +453,8 @@ public class dealsearch extends javax.swing.JInternalFrame {
                       
                         i++;
         }
-                    }catch(SQLException e){}              
+                    }catch(SQLException e){}     
+                    
                      tablo.setModel(new DefaultTableModel(oss,columnName)
                     {
             Class[] types = new Class [] {
