@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<Form version="1.6" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JInternalFrameFormInfo">
+<Form version="1.6" maxVersion="1.8" type="org.netbeans.modules.form.forminfo.JInternalFrameFormInfo">
   <NonVisualComponents>
     <Component class="javax.swing.ButtonGroup" name="buttonGroup1">
     </Component>
@@ -21,9 +21,6 @@
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="contract">
               <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Segoe UI" size="12" style="0"/>
-                </Property>
                 <Property name="text" type="java.lang.String" value="Contract"/>
                 <Property name="toolTipText" type="java.lang.String" value=""/>
               </Properties>
@@ -177,7 +174,7 @@
                                   <Component id="jPanel1" min="-2" pref="414" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                          <EmptySpace pref="125" max="32767" attributes="0"/>
+                          <EmptySpace pref="132" max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
                           <Component id="jToolBar1" min="-2" pref="100" max="-2" attributes="0"/>
@@ -270,7 +267,7 @@
                       <Font name="Tahoma" size="10" style="0"/>
                     </Property>
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                      <Table columnCount="10" rowCount="25">
+                      <Table columnCount="11" rowCount="25">
                         <Column editable="true" title="ID" type="java.lang.Object"/>
                         <Column editable="true" title="Seller" type="java.lang.Object"/>
                         <Column editable="true" title="Buyer" type="java.lang.Object"/>
@@ -281,10 +278,16 @@
                         <Column editable="true" title="B/G Validity" type="java.lang.Object"/>
                         <Column editable="true" title="Contract" type="java.lang.Object"/>
                         <Column editable="true" title="B/G" type="java.lang.Object"/>
+                        <Column editable="true" title="LFC" type="java.lang.Object"/>
                       </Table>
                     </Property>
                     <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
                       <TableColumnModel selectionModel="0">
+                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                          <Title/>
+                          <Editor/>
+                          <Renderer/>
+                        </Column>
                         <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
                           <Title/>
                           <Editor/>

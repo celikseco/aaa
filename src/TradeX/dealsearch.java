@@ -80,7 +80,6 @@ public class dealsearch extends javax.swing.JInternalFrame {
         jMenu1.setText("Open");
         jMenu1.setToolTipText("");
 
-        contract.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         contract.setText("Contract");
         contract.setToolTipText("");
         contract.addActionListener(new java.awt.event.ActionListener() {
@@ -172,34 +171,34 @@ public class dealsearch extends javax.swing.JInternalFrame {
         tablo.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         tablo.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null}
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "ID", "Seller", "Buyer", "Start", "End", "Payment", "B/G Issue", "B/G Validity", "Contract", "B/G"
+                "ID", "Seller", "Buyer", "Start", "End", "Payment", "B/G Issue", "B/G Validity", "Contract", "B/G", "LFC"
             }
         ));
         tablo.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
@@ -335,12 +334,12 @@ public class dealsearch extends javax.swing.JInternalFrame {
         });
 
         jToolBar1.setBackground(new java.awt.Color(255, 255, 255));
-        jToolBar1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jToolBar1.setBorder(new javax.swing.border.SoftBevelBorder(0));
         jToolBar1.setFloatable(false);
         jToolBar1.setRollover(true);
 
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/utilities/Opennew.png"))); // NOI18N
-        jButton2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButton2.setBorder(new javax.swing.border.SoftBevelBorder(0));
         jButton2.setFocusable(false);
         jButton2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton2.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -369,7 +368,7 @@ public class dealsearch extends javax.swing.JInternalFrame {
                                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 414, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addContainerGap(125, Short.MAX_VALUE))
+                        .addContainerGap(132, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                         .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -446,8 +445,8 @@ public class dealsearch extends javax.swing.JInternalFrame {
 
         ResultSet rss=deal.monthview();
         
-        String [] kolonname={"Select","ID","Seller","Buyer","Start","End","Payment","BG Issue","BG Validity","Contract","BG"};
-        Object veri[][]=new Object[j][11];
+        String [] kolonname={"Select","ID","Seller","Buyer","Start","End","Payment","BG Issue","BG Validity","Contract","BG","LFC"};
+        Object veri[][]=new Object[j][12];
         try {
             while(rss.next()){
                 veri[i][1]=rss.getInt("id");
@@ -460,7 +459,8 @@ public class dealsearch extends javax.swing.JInternalFrame {
                 veri[i][8]=rss.getDate("Validity");
                 veri[i][9]=rss.getString("ContractName");
                 veri[i][10]=rss.getString("Filename");           
-                       
+                veri[i][11]=rss.getString("LFCName");           
+      
 
                 i++;
             }
@@ -471,7 +471,7 @@ public class dealsearch extends javax.swing.JInternalFrame {
         tablo.setModel(new DefaultTableModel(veri,kolonname)
                     {
             Class[] types = new Class [] {
-                java.lang.Boolean.class,java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
+                java.lang.Boolean.class,java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -484,7 +484,7 @@ public class dealsearch extends javax.swing.JInternalFrame {
 
     private void jTextField1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyReleased
         // TODO add your handling code here:
-         String columnName[]={"Select","ID","Seller","Buyer","Start","End","Payment","BG Issue","BG Validity","Contract","BG"};
+         String columnName[]={"Select","ID","Seller","Buyer","Start","End","Payment","BG Issue","BG Validity","Contract","BG","LFC"};
         
         dbo.dealSave isimCek=new dbo.dealSave();      
 
@@ -511,7 +511,7 @@ public class dealsearch extends javax.swing.JInternalFrame {
                  }    } catch (SQLException ex) {
                  Logger.getLogger(dealsearch.class.getName()).log(Level.SEVERE, null, ex);
              }
-              Object oss[][]=new Object[li][11];
+              Object oss[][]=new Object[li][12];
               
               li=0;
               ResultSet rs2=isimCek.keyevent(jTextField1.getText());
@@ -527,14 +527,15 @@ public class dealsearch extends javax.swing.JInternalFrame {
                       oss[li][8]=rs2.getDate("Validity");
                       oss[li][9]=rs2.getString("ContractName");
                       oss[li][10]=rs2.getString("Filename");
-                      
+                      oss[li][11]=rs2.getString("LFCName");
+
                         li++;
         }
 
  tablo.setModel(new DefaultTableModel(oss,columnName)
                     {
             Class[] types = new Class [] {
-                java.lang.Boolean.class,java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
+                java.lang.Boolean.class,java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -567,12 +568,12 @@ public class dealsearch extends javax.swing.JInternalFrame {
                 tabloKeyReleased(evt);
             }
         });
-        String columnName[]={"Select","ID","Seller","Buyer","Start","End","Payment","BG Issue","BG Validity","Contract","BG"};
+        String columnName[]={"Select","ID","Seller","Buyer","Start","End","Payment","BG Issue","BG Validity","Contract","BG","LFC"};
         int i=0;
         dbo.dealSave nextmonth=new dbo.dealSave();
         int j=nextmonth.monthvieww3();
         ResultSet mont=nextmonth.monthNext();
-        Object oss[][]=new Object[j][11];
+        Object oss[][]=new Object[j][12];
 
                     try {
                     while(mont.next()){
@@ -586,6 +587,7 @@ public class dealsearch extends javax.swing.JInternalFrame {
                       oss[i][8]=mont.getDate("Validity");
                       oss[i][9]=mont.getString("ContractName");
                       oss[i][10]=mont.getString("Filename");
+                      oss[i][11]=mont.getString("LFCName");
                       
                         i++;
         }
@@ -594,7 +596,7 @@ public class dealsearch extends javax.swing.JInternalFrame {
                      tablo.setModel(new DefaultTableModel(oss,columnName)
                     {
             Class[] types = new Class [] {
-                java.lang.Boolean.class,java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
+                java.lang.Boolean.class,java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -629,13 +631,13 @@ public class dealsearch extends javax.swing.JInternalFrame {
                 tabloKeyReleased(evt);
             }
         });
-                 String columnName[]={"Select","ID","Seller","Buyer","Start","End","Payment","BG Issue","BG Validity","Contract","BG"};
+                 String columnName[]={"Select","ID","Seller","Buyer","Start","End","Payment","BG Issue","BG Validity","Contract","BG","LFC"};
         int i=0;
         dbo.dealSave nextmonth=new dbo.dealSave();
                 int j=nextmonth.monthvieww1();
 
         ResultSet mont=nextmonth.previousmonth();
-                Object oss[][]=new Object[j][11];
+                Object oss[][]=new Object[j][12];
 
                     try {
                     while(mont.next()){
@@ -649,6 +651,7 @@ public class dealsearch extends javax.swing.JInternalFrame {
                       oss[i][8]=mont.getDate("Validity");
                       oss[i][9]=mont.getString("ContractName");
                       oss[i][10]=mont.getString("Filename");
+                      oss[i][11]=mont.getString("LFCName");
                       
                         i++;
         }
@@ -656,7 +659,7 @@ public class dealsearch extends javax.swing.JInternalFrame {
                      tablo.setModel(new DefaultTableModel(oss,columnName)
                     {
             Class[] types = new Class [] {
-                java.lang.Boolean.class,java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
+                java.lang.Boolean.class,java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -686,13 +689,13 @@ public class dealsearch extends javax.swing.JInternalFrame {
             }
         });
         
-         String columnName[]={"Select","ID","Seller","Buyer","Start","End","Payment","BG Issue","BG Validity","Contract","BG"};
+         String columnName[]={"Select","ID","Seller","Buyer","Start","End","Payment","BG Issue","BG Validity","Contract","BG","LFC"};
         int i=0;
         dbo.dealSave nextmonth1=new dbo.dealSave();
         int j=nextmonth1.monthvieww2();
         ResultSet mont2=nextmonth1.currentmonth();
         
-        Object oss[][]=new Object[j][11];
+        Object oss[][]=new Object[j][12];
                     try {
                     while(mont2.next()){
                       oss[i][1]=mont2.getInt("id");
@@ -705,14 +708,14 @@ public class dealsearch extends javax.swing.JInternalFrame {
                       oss[i][8]=mont2.getDate("Validity");
                       oss[i][9]=mont2.getString("ContractName");
                       oss[i][10]=mont2.getString("Filename");
-                      
+                        oss[i][11]=mont2.getString("LFCName");                     
                         i++;
         }
                     }catch(SQLException e){}              
                      tablo.setModel(new DefaultTableModel(oss,columnName)
                     {
             Class[] types = new Class [] {
-                java.lang.Boolean.class,java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
+                java.lang.Boolean.class,java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -742,8 +745,8 @@ public class dealsearch extends javax.swing.JInternalFrame {
         dbo.dealSave nextmonth=new dbo.dealSave();
         ResultSet mont=nextmonth.monthview();
         int j=nextmonth.monthvieww();
-        String columnName[]={"Select","ID","Seller","Buyer","Start","End","Payment","BG Issue","BG Validity","Contract","BG"};
-        Object oss[][]=new Object[j][11];
+        String columnName[]={"Select","ID","Seller","Buyer","Start","End","Payment","BG Issue","BG Validity","Contract","BG","LFC"};
+        Object oss[][]=new Object[j][12];
                     try {
                     while(mont.next()){
                       oss[i][1]=mont.getInt("id");
@@ -756,6 +759,7 @@ public class dealsearch extends javax.swing.JInternalFrame {
                       oss[i][8]=mont.getDate("Validity");
                       oss[i][9]=mont.getString("ContractName");
                       oss[i][10]=mont.getString("Filename");
+                      oss[i][11]=mont.getString("LFCName");
                       
                         i++;
         }
@@ -764,7 +768,7 @@ public class dealsearch extends javax.swing.JInternalFrame {
                      tablo.setModel(new DefaultTableModel(oss,columnName)
                     {
             Class[] types = new Class [] {
-                java.lang.Boolean.class,java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
+                java.lang.Boolean.class,java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
             };
 
             public Class getColumnClass(int columnIndex) {
