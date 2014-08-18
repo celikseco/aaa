@@ -185,29 +185,33 @@ public class cenc extends javax.swing.JInternalFrame {
         jPanel5.setBackground(new java.awt.Color(255, 255, 255));
         jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Deal Side (1)", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, null, new java.awt.Color(255, 0, 0)));
 
-        jLabel1.setFont(new java.awt.Font("Batang", 0, 11)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Batang", 0, 10)); // NOI18N
         jLabel1.setText("Seller");
 
-        jLabel2.setFont(new java.awt.Font("Batang", 0, 11)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Batang", 0, 10)); // NOI18N
         jLabel2.setText("Buyer");
 
-        jLabel6.setFont(new java.awt.Font("Batang", 0, 11)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Batang", 0, 10)); // NOI18N
         jLabel6.setText("Type");
 
         type.setBackground(new java.awt.Color(204, 204, 255));
         type.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         type.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Bilateral", "Spot", "Asset", "Access" }));
 
-        jLabel17.setFont(new java.awt.Font("Batang", 0, 11)); // NOI18N
+        jLabel17.setFont(new java.awt.Font("Batang", 0, 10)); // NOI18N
         jLabel17.setText(" Price");
 
         target_price.setBackground(new java.awt.Color(255, 255, 204));
+        target_price.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
+        target_price.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
 
-        jLabel26.setFont(new java.awt.Font("Batang", 0, 11)); // NOI18N
+        jLabel26.setFont(new java.awt.Font("Batang", 0, 10)); // NOI18N
         jLabel26.setText("Capacity");
 
         capacityy.setEditable(false);
         capacityy.setBackground(new java.awt.Color(255, 255, 204));
+        capacityy.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
+        capacityy.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         capacityy.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 capacityyActionPerformed(evt);
@@ -217,20 +221,26 @@ public class cenc extends javax.swing.JInternalFrame {
         jLabel15.setFont(new java.awt.Font("Batang", 0, 10)); // NOI18N
         jLabel15.setText("Target Price");
 
-        jTextField1.setBackground(new java.awt.Color(255, 255, 153));
+        jTextField1.setBackground(new java.awt.Color(255, 255, 204));
+        jTextField1.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
+        jTextField1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
 
-        jComboBox6.setFont(new java.awt.Font("Tahoma", 0, 9)); // NOI18N
+        jComboBox6.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
         jComboBox6.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "TRY", "EUR", "USD" }));
 
-        jComboBox8.setFont(new java.awt.Font("Tahoma", 0, 9)); // NOI18N
+        jComboBox8.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
         jComboBox8.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "TRY", "EUR", "USD" }));
 
         jLabel24.setFont(new java.awt.Font("Tahoma", 2, 12)); // NOI18N
         jLabel24.setText("MW");
 
-        seller1.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        seller1.setBackground(new java.awt.Color(255, 255, 204));
+        seller1.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
+        seller1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
 
-        buyer1.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        buyer1.setBackground(new java.awt.Color(255, 255, 204));
+        buyer1.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
+        buyer1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -306,7 +316,7 @@ public class cenc extends javax.swing.JInternalFrame {
                     .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel15)
                         .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(56, Short.MAX_VALUE))
+                .addContainerGap(60, Short.MAX_VALUE))
         );
 
         jPanel1.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(-3, 0, 220, 270));
@@ -317,17 +327,17 @@ public class cenc extends javax.swing.JInternalFrame {
 
         deal_start.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
 
-        jLabel3.setFont(new java.awt.Font("Batang", 0, 11)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Batang", 0, 10)); // NOI18N
         jLabel3.setText("Start");
 
-        jLabel5.setFont(new java.awt.Font("Batang", 0, 11)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Batang", 0, 10)); // NOI18N
         jLabel5.setText("End");
 
         deal_end.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
 
         payment_date.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
 
-        jLabel13.setFont(new java.awt.Font("Batang", 0, 11)); // NOI18N
+        jLabel13.setFont(new java.awt.Font("Batang", 0, 10)); // NOI18N
         jLabel13.setText("Pay");
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
@@ -406,9 +416,8 @@ public class cenc extends javax.swing.JInternalFrame {
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(tr_tr1)
-                    .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(gr_tr1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(bg_tr1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(bg_tr1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(gr_tr1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(tr_gr1, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jRadioButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -418,13 +427,13 @@ public class cenc extends javax.swing.JInternalFrame {
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addGap(24, 24, 24)
                 .addComponent(tr_tr1)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(bg_tr1)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(gr_tr1)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(tr_gr1)
-                .addGap(13, 13, 13)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jRadioButton1)
                 .addContainerGap())
         );
@@ -475,11 +484,11 @@ public class cenc extends javax.swing.JInternalFrame {
             .addGroup(jPanel7Layout.createSequentialGroup()
                 .addGap(24, 24, 24)
                 .addComponent(stamp_buyer1)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(stamp_seller1)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(stamp_half1)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(stamp_nap1)
                 .addGap(47, 47, 47))
         );
@@ -489,10 +498,18 @@ public class cenc extends javax.swing.JInternalFrame {
         jPanel8.setBackground(new java.awt.Color(255, 255, 255));
         jPanel8.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Financing (9)", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, null, java.awt.Color.red));
 
-        jLabel11.setFont(new java.awt.Font("Batang", 0, 11)); // NOI18N
+        fxRate.setBackground(new java.awt.Color(255, 255, 204));
+        fxRate.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
+        fxRate.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+
+        creditInterest.setBackground(new java.awt.Color(255, 255, 204));
+        creditInterest.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
+        creditInterest.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+
+        jLabel11.setFont(new java.awt.Font("Batang", 0, 10)); // NOI18N
         jLabel11.setText("FX Forward Rate");
 
-        jLabel12.setFont(new java.awt.Font("Batang", 0, 11)); // NOI18N
+        jLabel12.setFont(new java.awt.Font("Batang", 0, 10)); // NOI18N
         jLabel12.setText("Credit Interest");
 
         jToolBar3.setBorder(null);
@@ -547,60 +564,85 @@ public class cenc extends javax.swing.JInternalFrame {
                 .addComponent(jToolBar3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton2)
-                .addGap(0, 108, Short.MAX_VALUE))
+                .addGap(0, 124, Short.MAX_VALUE))
         );
 
-        jPanel1.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 260, 170, 280));
+        jPanel1.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 260, 170, 290));
 
         jPanel9.setBackground(new java.awt.Color(255, 255, 255));
         jPanel9.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "TSO (6)", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, null, java.awt.Color.red));
 
-        jLabel8.setFont(new java.awt.Font("Batang", 0, 11)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("Batang", 0, 10)); // NOI18N
         jLabel8.setText("Export");
 
-        jLabel9.setFont(new java.awt.Font("Batang", 0, 11)); // NOI18N
+        jLabel9.setFont(new java.awt.Font("Batang", 0, 10)); // NOI18N
         jLabel9.setText("Perimeter");
 
-        jLabel10.setFont(new java.awt.Font("Batang", 0, 11)); // NOI18N
+        jLabel10.setFont(new java.awt.Font("Batang", 0, 10)); // NOI18N
         jLabel10.setText("SUF");
 
+        export.setBackground(new java.awt.Color(255, 255, 204));
+        export.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
         export.setToolTipText("Perimeter and all relevant cost per MW energy");
+        export.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
 
+        perimeter.setBackground(new java.awt.Color(255, 255, 204));
+        perimeter.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
         perimeter.setToolTipText("Cross Border Capacity Cost if it applies - default 0");
+        perimeter.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
 
+        suf.setBackground(new java.awt.Color(255, 255, 204));
+        suf.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
         suf.setToolTipText("System Usage Fee");
+        suf.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         suf.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 sufActionPerformed(evt);
             }
         });
 
-        jLabel14.setFont(new java.awt.Font("Batang", 0, 11)); // NOI18N
+        jLabel14.setFont(new java.awt.Font("Batang", 0, 10)); // NOI18N
         jLabel14.setText("CBTC");
 
-        jLabel18.setFont(new java.awt.Font("Batang", 0, 11)); // NOI18N
+        jLabel18.setFont(new java.awt.Font("Batang", 0, 10)); // NOI18N
         jLabel18.setText("Brokerage");
 
-        jLabel25.setFont(new java.awt.Font("Batang", 0, 11)); // NOI18N
+        cbtc.setBackground(new java.awt.Color(255, 255, 204));
+        cbtc.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
+        cbtc.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+
+        brokerage.setBackground(new java.awt.Color(255, 255, 204));
+        brokerage.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
+        brokerage.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+
+        jLabel25.setFont(new java.awt.Font("Batang", 0, 10)); // NOI18N
         jLabel25.setText("T/L");
 
-        jComboBox1.setFont(new java.awt.Font("Tahoma", 0, 9)); // NOI18N
+        tloss.setBackground(new java.awt.Color(255, 255, 204));
+        tloss.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
+        tloss.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+
+        jComboBox1.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "EUR", "TRY", "USD" }));
 
-        jComboBox2.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jComboBox2.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "EUR", "TRY", "USD" }));
 
-        jComboBox3.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jComboBox3.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
         jComboBox3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "EUR", "TRY", "USD" }));
 
-        jComboBox4.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jComboBox4.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
         jComboBox4.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "EUR", "TRY", "USD" }));
 
-        jComboBox5.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jComboBox5.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
         jComboBox5.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "EUR", "TRY", "USD" }));
 
-        jLabel28.setFont(new java.awt.Font("Batang", 0, 11)); // NOI18N
+        jLabel28.setFont(new java.awt.Font("Batang", 0, 10)); // NOI18N
         jLabel28.setText("FX CBTC");
+
+        jTextField5.setBackground(new java.awt.Color(255, 255, 204));
+        jTextField5.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
+        jTextField5.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
 
         javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
         jPanel9.setLayout(jPanel9Layout);
@@ -608,30 +650,23 @@ public class cenc extends javax.swing.JInternalFrame {
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel9Layout.createSequentialGroup()
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel9Layout.createSequentialGroup()
-                        .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel18, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(jPanel9Layout.createSequentialGroup()
-                                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jLabel10)
-                                        .addComponent(jLabel8)
-                                        .addComponent(jLabel14, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                    .addComponent(jLabel25))
-                                .addGap(18, 18, 18)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
-                    .addGroup(jPanel9Layout.createSequentialGroup()
-                        .addComponent(jLabel28)
-                        .addGap(39, 39, 39)))
-                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(brokerage, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 46, Short.MAX_VALUE)
-                    .addComponent(cbtc, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(suf, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(perimeter, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(export, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(tloss, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextField5))
+                    .addComponent(jLabel18)
+                    .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(jLabel10)
+                        .addComponent(jLabel8)
+                        .addComponent(jLabel14, javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(jLabel25))
+                    .addComponent(jLabel28))
+                .addGap(34, 34, Short.MAX_VALUE)
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(brokerage, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(export, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(perimeter, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(suf, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cbtc, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tloss, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel9Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -646,74 +681,87 @@ public class cenc extends javax.swing.JInternalFrame {
                             .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap())
         );
+
+        jPanel9Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {brokerage, cbtc, export, jTextField5, perimeter, suf, tloss});
+
+        jPanel9Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jLabel10, jLabel14, jLabel18, jLabel25, jLabel28, jLabel8, jLabel9});
+
         jPanel9Layout.setVerticalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel9Layout.createSequentialGroup()
-                .addGap(0, 0, 0)
-                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addContainerGap()
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel8)
                     .addComponent(export, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel9)
                     .addComponent(perimeter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jPanel9Layout.createSequentialGroup()
-                        .addGap(15, 15, 15)
-                        .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel9Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(suf)
-                            .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(3, 3, 3)
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel9Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel9Layout.createSequentialGroup()
-                        .addGap(11, 11, 11)
-                        .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(cbtc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(suf)
+                    .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel14)
+                    .addComponent(cbtc, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel18, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(brokerage, javax.swing.GroupLayout.DEFAULT_SIZE, 23, Short.MAX_VALUE)
-                        .addComponent(jComboBox5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(brokerage)
+                    .addComponent(jComboBox5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tloss, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel25))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel25)
+                    .addComponent(tloss, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel28)
                     .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(36, 36, 36))
+                .addContainerGap(69, Short.MAX_VALUE))
         );
 
-        jPanel1.add(jPanel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 270, 220, 270));
+        jPanel9Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {export, jLabel8});
+
+        jPanel9Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jLabel9, perimeter});
+
+        jPanel9Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jLabel10, suf});
+
+        jPanel9Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jLabel25, tloss});
+
+        jPanel9Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jLabel28, jTextField5});
+
+        jPanel1.add(jPanel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 270, 220, 280));
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Bank  Guarantee (7)", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, null, new java.awt.Color(255, 51, 0)));
 
-        jLabel20.setFont(new java.awt.Font("Batang", 0, 11)); // NOI18N
+        jLabel20.setFont(new java.awt.Font("Batang", 0, 10)); // NOI18N
         jLabel20.setText("Amount");
 
-        jLabel21.setFont(new java.awt.Font("Batang", 0, 11)); // NOI18N
+        jLabel21.setFont(new java.awt.Font("Batang", 0, 10)); // NOI18N
         jLabel21.setText("Commission");
 
-        jLabel22.setFont(new java.awt.Font("Batang", 0, 11)); // NOI18N
+        jLabel22.setFont(new java.awt.Font("Batang", 0, 10)); // NOI18N
         jLabel22.setText("Validity");
 
-        jLabel23.setFont(new java.awt.Font("Batang", 0, 11)); // NOI18N
+        jLabel23.setFont(new java.awt.Font("Batang", 0, 10)); // NOI18N
         jLabel23.setText("Issue Date");
 
         validity_date.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
 
+        amount.setBackground(new java.awt.Color(255, 255, 204));
+        amount.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
+        amount.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+
+        commission.setBackground(new java.awt.Color(255, 255, 204));
+        commission.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
         commission.setToolTipText("Quarterly commission percentage");
+        commission.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
 
         issue_date.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
 
@@ -723,7 +771,7 @@ public class cenc extends javax.swing.JInternalFrame {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jLabel21, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel21, javax.swing.GroupLayout.DEFAULT_SIZE, 62, Short.MAX_VALUE)
                     .addComponent(jLabel20, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel22, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel23, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -792,28 +840,29 @@ public class cenc extends javax.swing.JInternalFrame {
             jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel11Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jRadioButton2)
-                .addGap(18, 18, 18)
                 .addComponent(jRadioButton3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jRadioButton2)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel11Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel11Layout.createSequentialGroup()
+                .addContainerGap(10, Short.MAX_VALUE)
                 .addComponent(jRadioButton4)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jRadioButton5)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addContainerGap())
         );
         jPanel11Layout.setVerticalGroup(
             jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel11Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jRadioButton2)
-                    .addComponent(jRadioButton3))
-                .addGap(18, 18, 18)
+                    .addComponent(jRadioButton3, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
                 .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jRadioButton4)
                     .addComponent(jRadioButton5))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         jPanel1.add(jPanel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 160, 240, 100));
@@ -821,11 +870,19 @@ public class cenc extends javax.swing.JInternalFrame {
         jPanel10.setBackground(new java.awt.Color(255, 255, 255));
         jPanel10.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Commission (8)", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, null, new java.awt.Color(255, 0, 0)));
 
-        jLabel19.setFont(new java.awt.Font("Batang", 0, 11)); // NOI18N
+        jLabel19.setFont(new java.awt.Font("Batang", 0, 10)); // NOI18N
         jLabel19.setText("Broker Name");
 
-        jLabel27.setFont(new java.awt.Font("Batang", 0, 11)); // NOI18N
+        jLabel27.setFont(new java.awt.Font("Batang", 0, 10)); // NOI18N
         jLabel27.setText("Rate");
+
+        jTextField4.setBackground(new java.awt.Color(255, 255, 204));
+        jTextField4.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
+        jTextField4.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+
+        jTextField2.setBackground(new java.awt.Color(255, 255, 204));
+        jTextField2.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
+        jTextField2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
 
         javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
         jPanel10.setLayout(jPanel10Layout);
@@ -851,10 +908,10 @@ public class cenc extends javax.swing.JInternalFrame {
                 .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel27)
                     .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 13, Short.MAX_VALUE))
+                .addGap(0, 27, Short.MAX_VALUE))
         );
 
-        jPanel1.add(jPanel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 450, 250, 90));
+        jPanel1.add(jPanel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 450, 250, 100));
 
         jTabbedPane1.addTab("Deal Save", jPanel1);
 

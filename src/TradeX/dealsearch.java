@@ -6,7 +6,6 @@
 
 package TradeX;
 
-import static TradeX.ilkekran.tabular;
 import java.awt.HeadlessException;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -59,16 +58,23 @@ public class dealsearch extends javax.swing.JInternalFrame {
         jMenuItem5 = new javax.swing.JMenuItem();
         jMenuItem6 = new javax.swing.JMenuItem();
         jMenuItem1 = new javax.swing.JMenuItem();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
-        jRadioButton3 = new javax.swing.JRadioButton();
-        jTextField1 = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tablo = new javax.swing.JTable();
+        jPanel1 = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        jRadioButton1 = new javax.swing.JRadioButton();
+        jRadioButton2 = new javax.swing.JRadioButton();
         jRadioButton4 = new javax.swing.JRadioButton();
-        jLabel2 = new javax.swing.JLabel();
+        jRadioButton3 = new javax.swing.JRadioButton();
         jButton1 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
+        jToolBar1 = new javax.swing.JToolBar();
+        jButton2 = new javax.swing.JButton();
 
         jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/utilities/open1616.png"))); // NOI18N
         jMenu1.setText("Open");
@@ -136,7 +142,10 @@ public class dealsearch extends javax.swing.JInternalFrame {
 
         setBackground(new java.awt.Color(255, 255, 255));
         setClosable(true);
+        setForeground(java.awt.Color.white);
         setIconifiable(true);
+        setResizable(true);
+        setPreferredSize(new java.awt.Dimension(1344, 617));
         addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
             public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {
             }
@@ -155,43 +164,12 @@ public class dealsearch extends javax.swing.JInternalFrame {
             }
         });
 
-        buttonGroup1.add(jRadioButton1);
-        jRadioButton1.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
-        jRadioButton1.setText("All");
-        jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton1ActionPerformed(evt);
-            }
-        });
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
 
-        buttonGroup1.add(jRadioButton2);
-        jRadioButton2.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
-        jRadioButton2.setText("Last Month");
-        jRadioButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton2ActionPerformed(evt);
-            }
-        });
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Deals"));
 
-        buttonGroup1.add(jRadioButton3);
-        jRadioButton3.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
-        jRadioButton3.setText("Next Month");
-        jRadioButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton3ActionPerformed(evt);
-            }
-        });
-
-        jTextField1.setBackground(new java.awt.Color(255, 255, 204));
-        jTextField1.setFont(new java.awt.Font("Tahoma", 2, 12)); // NOI18N
-        jTextField1.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                jTextField1KeyReleased(evt);
-            }
-        });
-
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/utilities/search2020.png"))); // NOI18N
-
+        tablo.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         tablo.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null, null, null, null},
@@ -224,17 +202,101 @@ public class dealsearch extends javax.swing.JInternalFrame {
                 "ID", "Seller", "Buyer", "Start", "End", "Payment", "B/G Issue", "B/G Validity", "Contract", "B/G"
             }
         ));
+        tablo.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         tablo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tabloMouseClicked(evt);
+            }
             public void mouseReleased(java.awt.event.MouseEvent evt) {
                 tabloMouseReleased(evt);
             }
         });
         tablo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                tabloKeyPressed(evt);
+            }
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 tabloKeyReleased(evt);
             }
         });
         jScrollPane1.setViewportView(tablo);
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 734, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1)
+                .addContainerGap())
+        );
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Previous Deals"));
+
+        jTable1.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "ID", "Seller", "Buyer", "Start", "End"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.Object.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jTable1.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
+        jTable1.setShowHorizontalLines(false);
+        jTable1.setShowVerticalLines(false);
+        jScrollPane2.setViewportView(jTable1);
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(89, 89, 89))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane2)
+                .addGap(24, 24, 24))
+        );
+
+        buttonGroup1.add(jRadioButton1);
+        jRadioButton1.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jRadioButton1.setText("All");
+        jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton1ActionPerformed(evt);
+            }
+        });
+
+        buttonGroup1.add(jRadioButton2);
+        jRadioButton2.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jRadioButton2.setText("Last Month");
+        jRadioButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton2ActionPerformed(evt);
+            }
+        });
 
         buttonGroup1.add(jRadioButton4);
         jRadioButton4.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
@@ -245,60 +307,118 @@ public class dealsearch extends javax.swing.JInternalFrame {
             }
         });
 
+        buttonGroup1.add(jRadioButton3);
+        jRadioButton3.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jRadioButton3.setText("Next Month");
+        jRadioButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton3ActionPerformed(evt);
+            }
+        });
+
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/utilities/refresh2020.png"))); // NOI18N
+        jButton1.setToolTipText("Re-load Deals");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
 
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/utilities/search2020.png"))); // NOI18N
+
+        jTextField1.setBackground(new java.awt.Color(255, 255, 204));
+        jTextField1.setFont(new java.awt.Font("Tahoma", 2, 12)); // NOI18N
+        jTextField1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTextField1KeyReleased(evt);
+            }
+        });
+
+        jToolBar1.setBackground(new java.awt.Color(255, 255, 255));
+        jToolBar1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jToolBar1.setFloatable(false);
+        jToolBar1.setRollover(true);
+
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/utilities/Opennew.png"))); // NOI18N
+        jButton2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButton2.setFocusable(false);
+        jButton2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButton2.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jToolBar1.add(jButton2);
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(jRadioButton1)
+                                .addGap(18, 18, 18)
+                                .addComponent(jRadioButton2)
+                                .addGap(24, 24, 24)
+                                .addComponent(jRadioButton4)
+                                .addGap(18, 18, 18)
+                                .addComponent(jRadioButton3)
+                                .addGap(18, 18, 18)
+                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 414, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap(125, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                        .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(24, 24, 24))))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(26, 26, 26)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jRadioButton1)
+                        .addComponent(jRadioButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jRadioButton4)
+                        .addComponent(jRadioButton3))
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jRadioButton1)
-                        .addGap(18, 18, 18)
-                        .addComponent(jRadioButton2)
-                        .addGap(24, 24, 24)
-                        .addComponent(jRadioButton4)
-                        .addGap(18, 18, 18)
-                        .addComponent(jRadioButton3)
-                        .addGap(35, 35, 35)
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 516, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel2)
+                .addGap(388, 388, 388))
+            .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jRadioButton1)
-                        .addComponent(jRadioButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jRadioButton4)
-                        .addComponent(jRadioButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel2))
-                            .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(15, 15, 15)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel2)
+                .addGap(598, 598, 598))
         );
 
         pack();
@@ -307,11 +427,13 @@ public class dealsearch extends javax.swing.JInternalFrame {
     private void formInternalFrameOpened(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameOpened
         // TODO add your handling code here:
                 tablo.addMouseListener(new java.awt.event.MouseAdapter() {
+            @Override
             public void mouseReleased(java.awt.event.MouseEvent evt) {
                 tabloMouseReleased(evt);
             }
         });
         tablo.addKeyListener(new java.awt.event.KeyAdapter() {
+            @Override
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 tabloKeyReleased(evt);
             }
@@ -338,7 +460,7 @@ public class dealsearch extends javax.swing.JInternalFrame {
                 veri[i][8]=rss.getDate("Validity");
                 veri[i][9]=rss.getString("ContractName");
                 veri[i][10]=rss.getString("Filename");           
-                ;         
+                       
 
                 i++;
             }
@@ -363,40 +485,52 @@ public class dealsearch extends javax.swing.JInternalFrame {
     private void jTextField1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyReleased
         // TODO add your handling code here:
          String columnName[]={"Select","ID","Seller","Buyer","Start","End","Payment","BG Issue","BG Validity","Contract","BG"};
-        Object oss[][]=new Object[100][11];
-        ResultSet rs1=null;
+        
+        dbo.dealSave isimCek=new dbo.dealSave();      
+
+        ResultSet rs1=isimCek.keyevent(jTextField1.getText());
+         
         int li=0; 
         
-            try{          
-                Class.forName("com.mysql.jdbc.Driver").newInstance();	                 
-                java.sql.Connection con=DriverManager.getConnection(connectionUrl, connectionUser, connectionPassword);   
-                Statement st = con.createStatement();
-                String query = "SELECT * from unit.dbodeal WHERE Seller LIKE '%" + jTextField1.getText() + "%' or Buyer LIKE '%" + jTextField1.getText() + "%';";
-
-                rs1 = st.executeQuery(query);
-
-                
-	}catch(ClassNotFoundException | InstantiationException | IllegalAccessException | SQLException e){
-                            System.out.println(e.toString());
-
-        }
          
-            try {
-                    while(rs1.next()){
-                      oss[li][1]=rs1.getString("id");
-                      oss[li][2]=rs1.getString("Seller");
-                      oss[li][3]=rs1.getString("Buyer");
-                      oss[li][4]=rs1.getString("Start_Date");
-                      oss[li][5]=rs1.getString("End_Date");
-                      oss[li][6]=rs1.getString("Payment_Date");
-                      oss[li][7]=rs1.getString("Issue");
-                      oss[li][8]=rs1.getString("Validity");
-                      oss[li][9]=rs1.getString("ContractName");
-                      oss[li][10]=rs1.getString("Filename");
+         
+             try {
+                 while(rs1.next()){
+//                      oss[li][1]=rs1.getInt("id");
+//                      oss[li][2]=rs1.getString("Seller");
+//                      oss[li][3]=rs1.getString("Buyer");
+//                      oss[li][4]=rs1.getDate("Start_Date");
+//                      oss[li][5]=rs1.getDate("End_Date");
+//                      oss[li][6]=rs1.getDate("Payment_Date");
+//                      oss[li][7]=rs1.getDate("Issue");
+//                      oss[li][8]=rs1.getDate("Validity");
+//                      oss[li][9]=rs1.getString("ContractName");
+//                      oss[li][10]=rs1.getString("Filename");
+                     
+                     li++;
+                 }    } catch (SQLException ex) {
+                 Logger.getLogger(dealsearch.class.getName()).log(Level.SEVERE, null, ex);
+             }
+              Object oss[][]=new Object[li][11];
+              
+              li=0;
+              ResultSet rs2=isimCek.keyevent(jTextField1.getText());
+              try {
+                    while(rs2.next()){
+                      oss[li][1]=rs2.getInt("id");
+                      oss[li][2]=rs2.getString("Seller");
+                      oss[li][3]=rs2.getString("Buyer");
+                      oss[li][4]=rs2.getDate("Start_Date");
+                      oss[li][5]=rs2.getDate("End_Date");
+                      oss[li][6]=rs2.getDate("Payment_Date");
+                      oss[li][7]=rs2.getDate("Issue");
+                      oss[li][8]=rs2.getDate("Validity");
+                      oss[li][9]=rs2.getString("ContractName");
+                      oss[li][10]=rs2.getString("Filename");
                       
                         li++;
         }
-                    
+
  tablo.setModel(new DefaultTableModel(oss,columnName)
                     {
             Class[] types = new Class [] {
@@ -421,6 +555,8 @@ public class dealsearch extends javax.swing.JInternalFrame {
 
     private void jRadioButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton3ActionPerformed
         // TODO add your handling code here:
+               jTextField1.setText("");
+
         tablo.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseReleased(java.awt.event.MouseEvent evt) {
                 tabloMouseReleased(evt);
@@ -434,20 +570,20 @@ public class dealsearch extends javax.swing.JInternalFrame {
         String columnName[]={"Select","ID","Seller","Buyer","Start","End","Payment","BG Issue","BG Validity","Contract","BG"};
         int i=0;
         dbo.dealSave nextmonth=new dbo.dealSave();
+        int j=nextmonth.monthvieww3();
         ResultSet mont=nextmonth.monthNext();
-                int j=nextmonth.monthvieww();
         Object oss[][]=new Object[j][11];
 
                     try {
                     while(mont.next()){
-                      oss[i][1]=mont.getString("id");
+                      oss[i][1]=mont.getInt("id");
                       oss[i][2]=mont.getString("Seller");
                       oss[i][3]=mont.getString("Buyer");
-                      oss[i][4]=mont.getString("Start_Date");
-                      oss[i][5]=mont.getString("End_Date");
-                      oss[i][6]=mont.getString("Payment_Date");
-                      oss[i][7]=mont.getString("Issue");
-                      oss[i][8]=mont.getString("Validity");
+                      oss[i][4]=mont.getDate("Start_Date");
+                      oss[i][5]=mont.getDate("End_Date");
+                      oss[i][6]=mont.getDate("Payment_Date");
+                      oss[i][7]=mont.getDate("Issue");
+                      oss[i][8]=mont.getDate("Validity");
                       oss[i][9]=mont.getString("ContractName");
                       oss[i][10]=mont.getString("Filename");
                       
@@ -481,7 +617,9 @@ public class dealsearch extends javax.swing.JInternalFrame {
 
     private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
         // TODO add your handling code here:
-                tablo.addMouseListener(new java.awt.event.MouseAdapter() {
+                jTextField1.setText("");
+       
+        tablo.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseReleased(java.awt.event.MouseEvent evt) {
                 tabloMouseReleased(evt);
             }
@@ -494,21 +632,21 @@ public class dealsearch extends javax.swing.JInternalFrame {
                  String columnName[]={"Select","ID","Seller","Buyer","Start","End","Payment","BG Issue","BG Validity","Contract","BG"};
         int i=0;
         dbo.dealSave nextmonth=new dbo.dealSave();
-                int j=nextmonth.monthvieww();
+                int j=nextmonth.monthvieww1();
 
         ResultSet mont=nextmonth.previousmonth();
                 Object oss[][]=new Object[j][11];
 
                     try {
                     while(mont.next()){
-                      oss[i][1]=mont.getString("id");
+                      oss[i][1]=mont.getInt("id");
                       oss[i][2]=mont.getString("Seller");
                       oss[i][3]=mont.getString("Buyer");
-                      oss[i][4]=mont.getString("Start_Date");
-                      oss[i][5]=mont.getString("End_Date");
-                      oss[i][6]=mont.getString("Payment_Date");
-                      oss[i][7]=mont.getString("Issue");
-                      oss[i][8]=mont.getString("Validity");
+                      oss[i][4]=mont.getDate("Start_Date");
+                      oss[i][5]=mont.getDate("End_Date");
+                      oss[i][6]=mont.getDate("Payment_Date");
+                      oss[i][7]=mont.getDate("Issue");
+                      oss[i][8]=mont.getDate("Validity");
                       oss[i][9]=mont.getString("ContractName");
                       oss[i][10]=mont.getString("Filename");
                       
@@ -531,13 +669,18 @@ public class dealsearch extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jRadioButton2ActionPerformed
 
     private void jRadioButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton4ActionPerformed
+
         // TODO add your handling code here:
-                tablo.addMouseListener(new java.awt.event.MouseAdapter() {
+                jTextField1.setText("");
+
+        tablo.addMouseListener(new java.awt.event.MouseAdapter() {
+            @Override
             public void mouseReleased(java.awt.event.MouseEvent evt) {
                 tabloMouseReleased(evt);
             }
         });
         tablo.addKeyListener(new java.awt.event.KeyAdapter() {
+            @Override
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 tabloKeyReleased(evt);
             }
@@ -545,24 +688,23 @@ public class dealsearch extends javax.swing.JInternalFrame {
         
          String columnName[]={"Select","ID","Seller","Buyer","Start","End","Payment","BG Issue","BG Validity","Contract","BG"};
         int i=0;
-        dbo.dealSave nextmonth=new dbo.dealSave();
-        ResultSet mont=nextmonth.currentmonth();
-        int j=nextmonth.monthvieww();
-        Object oss[][]=new Object[j][11];
-
+        dbo.dealSave nextmonth1=new dbo.dealSave();
+        int j=nextmonth1.monthvieww2();
+        ResultSet mont2=nextmonth1.currentmonth();
         
+        Object oss[][]=new Object[j][11];
                     try {
-                    while(mont.next()){
-                      oss[i][1]=mont.getString("id");
-                      oss[i][2]=mont.getString("Seller");
-                      oss[i][3]=mont.getString("Buyer");
-                      oss[i][4]=mont.getString("Start_Date");
-                      oss[i][5]=mont.getString("End_Date");
-                      oss[i][6]=mont.getString("Payment_Date");
-                      oss[i][7]=mont.getString("Issue");
-                      oss[i][8]=mont.getString("Validity");
-                      oss[i][9]=mont.getString("ContractName");
-                      oss[i][10]=mont.getString("Filename");
+                    while(mont2.next()){
+                      oss[i][1]=mont2.getInt("id");
+                      oss[i][2]=mont2.getString("Seller");
+                      oss[i][3]=mont2.getString("Buyer");
+                      oss[i][4]=mont2.getDate("Start_Date");
+                      oss[i][5]=mont2.getDate("End_Date");
+                      oss[i][6]=mont2.getDate("Payment_Date");
+                      oss[i][7]=mont2.getDate("Issue");
+                      oss[i][8]=mont2.getDate("Validity");
+                      oss[i][9]=mont2.getString("ContractName");
+                      oss[i][10]=mont2.getString("Filename");
                       
                         i++;
         }
@@ -584,7 +726,8 @@ public class dealsearch extends javax.swing.JInternalFrame {
 
     private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
         // TODO add your handling code here:
-                tablo.addMouseListener(new java.awt.event.MouseAdapter() {
+        jTextField1.setText("");
+        tablo.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseReleased(java.awt.event.MouseEvent evt) {
                 tabloMouseReleased(evt);
             }
@@ -603,14 +746,14 @@ public class dealsearch extends javax.swing.JInternalFrame {
         Object oss[][]=new Object[j][11];
                     try {
                     while(mont.next()){
-                      oss[i][1]=mont.getString("id");
+                      oss[i][1]=mont.getInt("id");
                       oss[i][2]=mont.getString("Seller");
                       oss[i][3]=mont.getString("Buyer");
-                      oss[i][4]=mont.getString("Start_Date");
-                      oss[i][5]=mont.getString("End_Date");
-                      oss[i][6]=mont.getString("Payment_Date");
-                      oss[i][7]=mont.getString("Issue");
-                      oss[i][8]=mont.getString("Validity");
+                      oss[i][4]=mont.getDate("Start_Date");
+                      oss[i][5]=mont.getDate("End_Date");
+                      oss[i][6]=mont.getDate("Payment_Date");
+                      oss[i][7]=mont.getDate("Issue");
+                      oss[i][8]=mont.getDate("Validity");
                       oss[i][9]=mont.getString("ContractName");
                       oss[i][10]=mont.getString("Filename");
                       
@@ -920,11 +1063,53 @@ public class dealsearch extends javax.swing.JInternalFrame {
         jScrollPane1.setViewportView(tablo);
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void tabloKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tabloKeyPressed
+        // TODO add your handling code here:
+ 
+    }//GEN-LAST:event_tabloKeyPressed
+
+    private void tabloMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabloMouseClicked
+
+               String alici;
+        String satici;String searchName;
+       String [] columnNames=new String [] {"ID", "Seller", "Buyer", "Start", "End"};
+        alici=tablo.getValueAt(tablo.getSelectedRow(), 3).toString();
+        satici=tablo.getValueAt(tablo.getSelectedRow(), 2).toString();
+        if(alici.startsWith("Unit")){
+        searchName=satici;
+        }
+        else{
+        searchName=alici;
+        }
+        
+        dbo.dealSave shortList =new dbo.dealSave();
+        int satirSayisi=shortList.pastDeals(searchName);
+        ResultSet sL=shortList.keyevent(searchName);
+        Object devam[][] =new Object[satirSayisi][5];
+        int i=0;
+                        try {
+                            while(sL.next()){
+                                devam[i][0]=sL.getInt("id");
+                                devam[i][1]=sL.getString("Seller");
+                                devam[i][2]=sL.getString("Buyer");
+                                devam[i][3]=sL.getDate("Start_Date");
+                                devam[i][4]=sL.getDate("End_Date");
+
+                                i++;
+                            }               } catch (SQLException ex) {
+                            Logger.getLogger(dealsearch.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+        
+                        jTable1.setModel(new DefaultTableModel(devam,columnNames));
+                        jScrollPane2.setViewportView(jTable1);  
+    }//GEN-LAST:event_tabloMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JMenuItem contract;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JMenu jMenu1;
@@ -934,13 +1119,19 @@ public class dealsearch extends javax.swing.JInternalFrame {
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JPopupMenu jPopupMenu1;
     private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JRadioButton jRadioButton3;
     private javax.swing.JRadioButton jRadioButton4;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    public static javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JToolBar jToolBar1;
     public javax.swing.JTable tablo;
     // End of variables declaration//GEN-END:variables
 }

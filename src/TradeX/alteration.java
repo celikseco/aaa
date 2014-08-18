@@ -6,6 +6,7 @@
 
 package TradeX;
 
+import static TradeX.ilkekran.tabular;
 import java.awt.Cursor;
 import static java.awt.Cursor.WAIT_CURSOR;
 import java.awt.Dimension;
@@ -40,6 +41,8 @@ public class alteration extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPopupMenu1 = new javax.swing.JPopupMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel2 = new javax.swing.JPanel();
         jToolBar1 = new javax.swing.JToolBar();
@@ -53,9 +56,19 @@ public class alteration extends javax.swing.JInternalFrame {
         seller = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         type = new javax.swing.JTextField();
-        jButton2 = new javax.swing.JButton();
+        jToolBar2 = new javax.swing.JToolBar();
         jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
+
+        jMenuItem1.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
+        jMenuItem1.setText("Change");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        jPopupMenu1.add(jMenuItem1);
 
         setBackground(new java.awt.Color(51, 102, 255));
         setClosable(true);
@@ -122,7 +135,24 @@ public class alteration extends javax.swing.JInternalFrame {
                 "DATE", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23"
             }
         ));
+        hulo.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
+        hulo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                huloMouseReleased(evt);
+            }
+        });
         jScrollPane2.setViewportView(hulo);
+        if (hulo.getColumnModel().getColumnCount() > 0) {
+            hulo.getColumnModel().getColumn(0).setMinWidth(75);
+            hulo.getColumnModel().getColumn(0).setPreferredWidth(75);
+            hulo.getColumnModel().getColumn(0).setMaxWidth(75);
+            hulo.getColumnModel().getColumn(1).setMinWidth(20);
+            hulo.getColumnModel().getColumn(1).setPreferredWidth(20);
+            hulo.getColumnModel().getColumn(1).setMaxWidth(20);
+            hulo.getColumnModel().getColumn(2).setMinWidth(20);
+            hulo.getColumnModel().getColumn(2).setPreferredWidth(20);
+            hulo.getColumnModel().getColumn(2).setMaxWidth(20);
+        }
 
         jLabel1.setText("Deal ID");
 
@@ -148,18 +178,8 @@ public class alteration extends javax.swing.JInternalFrame {
         type.setBackground(new java.awt.Color(255, 204, 204));
         type.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
 
-        jButton2.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/utilities/Excel1616.png"))); // NOI18N
-        jButton2.setToolTipText("Export to excel");
-        jButton2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jButton2.setFocusable(false);
-        jButton2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton2.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
+        jToolBar2.setFloatable(false);
+        jToolBar2.setRollover(true);
 
         jButton1.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/utilities/db_update1616.png"))); // NOI18N
@@ -176,6 +196,21 @@ public class alteration extends javax.swing.JInternalFrame {
                 jButton1ActionPerformed(evt);
             }
         });
+        jToolBar2.add(jButton1);
+
+        jButton2.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/utilities/Excel1616.png"))); // NOI18N
+        jButton2.setToolTipText("Export to excel");
+        jButton2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButton2.setFocusable(false);
+        jButton2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButton2.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        jToolBar2.add(jButton2);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -206,10 +241,8 @@ public class alteration extends javax.swing.JInternalFrame {
                                 .addComponent(jLabel4)
                                 .addGap(18, 18, 18)
                                 .addComponent(type, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(45, 45, 45)
-                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, 0)
-                                .addComponent(jButton2)
+                                .addGap(37, 37, 37)
+                                .addComponent(jToolBar2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(0, 0, Short.MAX_VALUE)))
                         .addContainerGap())))
         );
@@ -226,9 +259,8 @@ public class alteration extends javax.swing.JInternalFrame {
                         .addComponent(seller, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel4)
                         .addComponent(type, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(11, 11, 11)
+                    .addComponent(jToolBar2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(9, 9, 9)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -340,6 +372,27 @@ try (FileWriter output = new FileWriter(file)) {
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void huloMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_huloMouseReleased
+        // TODO add your handling code here:
+        if(evt.isPopupTrigger()){
+            jPopupMenu1.show(hulo, evt.getX(),evt.getY());}
+        
+    }//GEN-LAST:event_huloMouseReleased
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        // TODO add your handling code here:
+        replacement changeForm = new replacement(""+hulo.getValueAt(hulo.getSelectedRow(), 0),deal_id.getText());
+        JDesktopPane desktopPane = getDesktopPane();
+        desktopPane.add(changeForm);//add f1 to desktop pane
+               Dimension jInternalFrameSize = changeForm.getSize();
+        Dimension desktopSize = desktopPane.getSize();
+  changeForm.setLocation((desktopSize.width - jInternalFrameSize.width)/2,
+    (desktopSize.height- jInternalFrameSize.height)/2);
+        changeForm.setVisible(true);         // TODO add your handling code here:
+        changeForm.moveToFront();
+        
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
     public int veriyiguncelle(int k,int l,int i,int j){
 
         return (int)(k+1)*(l+1)*100/(i*j);
@@ -355,11 +408,14 @@ try (FileWriter output = new FileWriter(file)) {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPopupMenu jPopupMenu1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JToolBar jToolBar1;
+    private javax.swing.JToolBar jToolBar2;
     public static javax.swing.JTextField seller;
     public static javax.swing.JTextField type;
     // End of variables declaration//GEN-END:variables

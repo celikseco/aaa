@@ -187,7 +187,7 @@ public class dealSave {
     }        
          public void enterDeal(String seller,String buyer,String type,Date sDate,int sHR,Date eDate,int eHR,
                  String direction,String stamp,double capacity,double energy,double price,double profit,double expense,double export,double suf,double perimeter,
-                 double tloss,double cbtc,double exchange, double credit,Date payment,int pHr,Date issue,Date validity,double Brokerage,double commiosson,double amount,String brokername,double brokerrate,double brokeramount,String profil,String tarif,double fxcbtc,double brutprice ){
+                 double tloss,double cbtc,double exchange, double credit,Date payment,int pHr,Date issue,Date validity,double Brokerage,double commiosson,double amount,String brokername,double brokerrate,double brokeramount,String profil,String tarif,double fxcbtc,double brutprice,String notlar ){
                
              
 		try {
@@ -197,7 +197,7 @@ public class dealSave {
 			 
                          conn = DriverManager.getConnection(connectionUrl, connectionUser, connectionPassword);
                         stmt = conn.createStatement();
-                        String calll="{call insert_schedule(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)}";
+                        String calll="{call insert_schedule(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)}";
                         ps=conn.prepareCall(calll);                                              
                         ps.setString(1, seller); ps.setString(2, buyer);ps.setString(3, type);ps.setDate(4, sDate);ps.setInt(5, sHR);
                                                                                        
@@ -209,7 +209,7 @@ public class dealSave {
                         
                         ps.setDouble(20,exchange);ps.setDouble(21,credit);ps.setDate(22,payment);ps.setInt(23,pHr);ps.setDate(24,issue);ps.setDate(25,validity);ps.setDouble(26,Brokerage);
                         
-                        ps.setDouble(27,commiosson);ps.setDouble(28,amount);ps.setString(29,brokername);ps.setDouble(30,brokerrate);ps.setDouble(31,brokeramount);ps.setString(32, profil);ps.setString(33, tarif);ps.setDouble(34, fxcbtc);ps.setDouble(35, brutprice);
+                        ps.setDouble(27,commiosson);ps.setDouble(28,amount);ps.setString(29,brokername);ps.setDouble(30,brokerrate);ps.setDouble(31,brokeramount);ps.setString(32, profil);ps.setString(33, tarif);ps.setDouble(34, fxcbtc);ps.setDouble(35, brutprice);ps.setString(36, notlar);
 			ps.executeUpdate();
 			
 		} catch (ClassNotFoundException | IllegalAccessException | InstantiationException | SQLException e) {
@@ -227,9 +227,9 @@ public class dealSave {
 			 
                          conn = DriverManager.getConnection(connectionUrl, connectionUser, connectionPassword);
                         stmt = conn.createStatement();
-                        String calll="{call veri_sil(?)}";
-                        ps=conn.prepareCall(calll);                                              
-                        ps.setInt(1, Id);
+                        ps=conn.prepareStatement("delete from unit.dbodeal where id=?;");
+                                              
+                        ps.setInt(1, Id); 
 			ps.executeUpdate();
 			
 		} catch (ClassNotFoundException | IllegalAccessException | InstantiationException | SQLException e) {
@@ -239,6 +239,26 @@ public class dealSave {
 			try { if (conn != null) conn.close(); } catch (SQLException e) {}
 		}
     }      
+                                      public void verisil1(int Id ){
+        
+		try {
+                           
+                        Class.forName("com.mysql.jdbc.Driver").newInstance();
+			 
+                         conn = DriverManager.getConnection(connectionUrl, connectionUser, connectionPassword);
+                        stmt = conn.createStatement();
+                        ps=conn.prepareStatement("delete from unit.schedules where dealID=?;");
+                                              
+                        ps.setInt(1, Id); 
+			ps.executeUpdate();
+			
+		} catch (ClassNotFoundException | IllegalAccessException | InstantiationException | SQLException e) {
+		} finally {
+			try { if (rs != null) rs.close(); } catch (SQLException e) {}
+			try { if (stmt != null) stmt.close(); } catch (SQLException e) {}
+			try { if (conn != null) conn.close(); } catch (SQLException e) {}
+		}
+    }  
          public void deletion(int i){
          
                       try {
@@ -541,8 +561,78 @@ public class dealSave {
 			                 
                   java.sql.Connection con = DriverManager.getConnection(connectionUrl, connectionUser, connectionPassword);
                 
-        
+      
         cs = con.prepareCall("{?=call deal_sayisi()};");
+    
+  int count = 0;
+        cs.registerOutParameter(1, Types.INTEGER);
+        cs.execute();
+        count = cs.getInt(1);
+        return count;
+             }   catch(ClassNotFoundException | IllegalAccessException | InstantiationException | SQLException e){return 0;}
+                 finally {
+			try { if (rs != null) rs.close(); } catch (SQLException e) {}
+			try { if (stmt != null) stmt.close(); } catch (SQLException e) {}
+			try { if (conn != null) conn.close(); } catch (SQLException e) {}
+		}
+                
+}
+    
+      public int monthvieww1(){
+                 try{             
+
+                        Class.forName("com.mysql.jdbc.Driver").newInstance();
+			                 
+                  java.sql.Connection con = DriverManager.getConnection(connectionUrl, connectionUser, connectionPassword);
+                
+      
+        cs = con.prepareCall("{?=call deal_sayisi1()};");
+    
+  int count = 0;
+        cs.registerOutParameter(1, Types.INTEGER);
+        cs.execute();
+        count = cs.getInt(1);
+        return count;
+             }   catch(ClassNotFoundException | IllegalAccessException | InstantiationException | SQLException e){return 0;}
+                 finally {
+			try { if (rs != null) rs.close(); } catch (SQLException e) {}
+			try { if (stmt != null) stmt.close(); } catch (SQLException e) {}
+			try { if (conn != null) conn.close(); } catch (SQLException e) {}
+		}
+                
+}
+      public int monthvieww2(){
+                 try{             
+
+                        Class.forName("com.mysql.jdbc.Driver").newInstance();
+			                 
+                  java.sql.Connection con = DriverManager.getConnection(connectionUrl, connectionUser, connectionPassword);
+                
+      
+        cs = con.prepareCall("{?=call deal_sayisi2()};");
+    
+  int count = 0;
+        cs.registerOutParameter(1, Types.INTEGER);
+        cs.execute();
+        count = cs.getInt(1);
+        return count;
+             }   catch(ClassNotFoundException | IllegalAccessException | InstantiationException | SQLException e){return 0;}
+                 finally {
+			try { if (rs != null) rs.close(); } catch (SQLException e) {}
+			try { if (stmt != null) stmt.close(); } catch (SQLException e) {}
+			try { if (conn != null) conn.close(); } catch (SQLException e) {}
+		}
+                
+}
+      public int monthvieww3(){
+                 try{             
+
+                        Class.forName("com.mysql.jdbc.Driver").newInstance();
+			                 
+                  java.sql.Connection con = DriverManager.getConnection(connectionUrl, connectionUser, connectionPassword);
+                
+      
+        cs = con.prepareCall("{?=call deal_sayisi3()};");
     
   int count = 0;
         cs.registerOutParameter(1, Types.INTEGER);
@@ -681,15 +771,14 @@ public class dealSave {
                 
 }
               
-                            public ResultSet currentmonth(){
+       public ResultSet currentmonth(){
                  try{             
 
                         Class.forName("com.mysql.jdbc.Driver").newInstance();
 			                 
                   java.sql.Connection con = DriverManager.getConnection(connectionUrl, connectionUser, connectionPassword);
                 
-        java.sql.Statement stmts = null;
-        String query = "SELECT * from dbodeal where month(Start_Date)=month(curdate());";
+        String query = "select * from unit.dbodeal where month(Start_Date) >= month(curdate()) and month(Start_Date)<=month(curdate());";
         ps = con.prepareStatement(query);
          rs = ps.executeQuery();
              return rs;
@@ -863,6 +952,91 @@ public class dealSave {
                 
 }
 
+              public ResultSet keyevent(String abc){
+                 try{             
+
+                        Class.forName("com.mysql.jdbc.Driver").newInstance();
+			                 
+                  java.sql.Connection con = DriverManager.getConnection(connectionUrl, connectionUser, connectionPassword);
+                
+        java.sql.Statement stmts = null;
+        String query = "SELECT * from unit.dbodeal WHERE Seller LIKE '%" + abc + "%' or Buyer LIKE '%" + abc + "%';";
+        ps = con.prepareStatement(query);
+         rs = ps.executeQuery();
+             return rs;
+             }   catch(ClassNotFoundException | IllegalAccessException | InstantiationException | SQLException e){return null;}
+                 finally {
+//			try { if (rs != null) rs.close(); } catch (SQLException e) {}
+			try { if (stmt != null) stmt.close(); } catch (SQLException e) {}
+			try { if (conn != null) conn.close(); } catch (SQLException e) {}
+		}
+                
+}
+
+             public int keyeventCount(String abc){
+                 try{             
+
+                        Class.forName("com.mysql.jdbc.Driver").newInstance();
+			                 
+                  java.sql.Connection con = DriverManager.getConnection(connectionUrl, connectionUser, connectionPassword);
+                
+        java.sql.Statement stmts = null;
+        String query = ";";
+        ps = con.prepareStatement(query);
+         rs = ps.executeQuery();
+         int rowN=rs.getRow();
+             return rowN;
+             }   catch(ClassNotFoundException | IllegalAccessException | InstantiationException | SQLException e){return 0;}
+                 finally {
+//			try { if (rs != null) rs.close(); } catch (SQLException e) {}
+			try { if (stmt != null) stmt.close(); } catch (SQLException e) {}
+			try { if (conn != null) conn.close(); } catch (SQLException e) {}
+		}
+                
+}        
+        public void newUser(String name,String lasrname,String password,String email){
+             try {
+                                
+                        Class.forName("com.mysql.jdbc.Driver").newInstance();
+			 
+                         conn = DriverManager.getConnection(connectionUrl, connectionUser, connectionPassword);
+                        stmt = conn.createStatement();
+                        ps=conn.prepareStatement("insert into unit.users (username,userlastname,usermail,userpassword) values(?,?,?,?);");
+                                              
+                        ps.setString(1, name);  ps.setString(2, lasrname);  ps.setString(3, email);  ps.setString(4, password); 
+			ps.executeUpdate();
+			
+		} catch (ClassNotFoundException | IllegalAccessException | InstantiationException | SQLException e) {
+		} finally {
+			try { if (rs != null) rs.close(); } catch (SQLException e) {}
+			try { if (stmt != null) stmt.close(); } catch (SQLException e) {}
+			try { if (conn != null) conn.close(); } catch (SQLException e) {}
+		}
+    }
+        
+         public int pastDeals(String abc){
+                 try{             
+
+                        Class.forName("com.mysql.jdbc.Driver").newInstance();
+			                 
+                  java.sql.Connection con = DriverManager.getConnection(connectionUrl, connectionUser, connectionPassword);
+                
+      
+        cs = con.prepareCall("{?=call key_EventCount(?)};");
     
-                    
+        int count;
+        
+        cs.registerOutParameter(1, Types.INTEGER);
+        cs.setString(2, abc);
+        cs.execute();
+        count = cs.getInt(1);
+        return count;
+             }   catch(ClassNotFoundException | IllegalAccessException | InstantiationException | SQLException e){return 0;}
+                 finally {
+			try { if (rs != null) rs.close(); } catch (SQLException e) {}
+			try { if (stmt != null) stmt.close(); } catch (SQLException e) {}
+			try { if (conn != null) conn.close(); } catch (SQLException e) {}
+		}
+                
+}
 }
