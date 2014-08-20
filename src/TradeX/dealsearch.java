@@ -334,12 +334,12 @@ public class dealsearch extends javax.swing.JInternalFrame {
         });
 
         jToolBar1.setBackground(new java.awt.Color(255, 255, 255));
-        jToolBar1.setBorder(new javax.swing.border.SoftBevelBorder(0));
+        jToolBar1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jToolBar1.setFloatable(false);
         jToolBar1.setRollover(true);
 
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/utilities/Opennew.png"))); // NOI18N
-        jButton2.setBorder(new javax.swing.border.SoftBevelBorder(0));
+        jButton2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButton2.setFocusable(false);
         jButton2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton2.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);

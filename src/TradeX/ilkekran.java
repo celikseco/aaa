@@ -4101,6 +4101,18 @@ public static boolean isMyResultSetEmpty(ResultSet rs) throws SQLException {
     return (!rs.isBeforeFirst() && rs.getRow() == 0);
 }
 
+public double fiyatHesapla(String alici,String satici, String tur,double price,double capacity,Date start,Date end,Date payment,String direction,double Stampfee,double exportFees,double perimeter,double suf,double sop,double tloss,double bankcommissionAmount,double bankrate,double brokerRate,Date valid,Date issue,double creditInt){
+                
+                if(alici.equals("Unit Elektrik")){
+                    price=price+Stampfee+exportFees+perimeter+suf+sop+price*tloss+price*brokerRate;
+                }
+                else{
+                    price=price-Stampfee-exportFees-perimeter-suf-sop-price*tloss-price*brokerRate;
+                }
+        
+    return price;
+}
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem A;
     private javax.swing.JMenuItem B;
